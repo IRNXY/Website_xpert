@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+<!--    <meta name="viewport"  content="width=device-width, initial-scale=1">-->
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Bootstrap стили -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="static/font/style.css">
+    <!-- кастомные стили -->
+<!--    <style>-->
+<!--        #col {background-color: blue;-->
+<!--              border: 3px solid gray;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+
+<div id="sale_announcement"> Kakoyto text</div>
+
+<div id="header">
+    <div id="left_space"></div>
+<!-- навигация (header)-->
+
+    <div id="header_menu">
+        <div id="basic_inf">
+            <div id="img_col">
+                <img id="header_img_col" src="/static/image/huter_logo.png">
+            </div>
+            <div id="type">
+                <p id="type_store">Фирменный оптово-розничный магазин</p>
+                <p>Официальный дилер в г. Новосибирск</p>
+                <p id="type_store">Ежедневно с 09:00-20:00</p>
+            </div>
+            <div id="streets">
+                <p>П.берег: ул. Ипподромская 54</p>
+                <p>Л.берег: ул. Новогодняя 24 (ПН-ПТ, 9:00-19:00)</p>
+                <p>Первомайский район: ул. Ольги Берггольц 24</p>
+            </div>
+            <div id="contact">
+                <p id="type_store">8 (383) 209-24-24</p>
+                <p>sferarub@mail.ru</p>
+            </div>
+            <div id="bin">
+                <img id="header_bin_col" src="">
+                <p>Корзина</p>
+            </div>
+        </div>
+        <div id="btn_row">
+            <a href="/" id="btn_header_a"><div id="btn_header_div"> Каталог </div></a>
+            <a href="/" id="btn_header_a"><div id="btn_header_div"> Акции </div></a>
+            <a href="/" id="btn_header_a"><div id="btn_header_div"> Доставка и Оплата </div></a>
+            <a href="/" id="btn_header_a"><div id="btn_header_div"> Юридическим лицам</div></a>
+            <a href="/" id="btn_header_a"><div id="btn_header_div"> Сертифиакты </div></a>
+            <a href="/" id="btn_header_a"><div id="btn_header_div"> Контакты </div></a>
+        </div>
+        <div>
+            <form method="post">
+                <input type="text" id="products_input" name="products" required>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="right_space"></div>
+</div>
+
+<!-- контент дочерних шаблонов -->
+    {% block content %}
+    {% endblock %}
+
+<!-- footer -->
+
+<div id="footer">
+    <div id="left_space"></div>
+    <div id="center">
+        <div id="upper_part_3col">
+            <div id="left_col">
+                <p>
+                    <a href="/" id="menu_footer">КАТАЛОГ ТОВАРОВ &nbsp;</a>
+                    <a href="/" id="menu_footer">АКЦИИ &nbsp;</a>
+                    <a href="/" id="menu_footer">ДОСТАВКА И ОПЛАТА &nbsp;</a>
+
+                    <a href="/" id="menu_footer">ЮРИДИЧЕСКИМ ЛИЦАМ &nbsp;</a>
+                    <a href="/" id="menu_footer">СЕРТИФИКАТЫ &nbsp;</a>
+                    <a href="/" id="menu_footer">КОНТАКТЫ &nbsp;</a>
+                </p>
+            </div>
+            <div id="cent_col">
+                <p>СВЯЖИТЕСЬ С НАМИ</p>
+                <p>8 (383) 209-24-24</p>
+            </div>
+            <div id="right_col">
+                <p>sferarub@mail.ru</p>
+                <p>г. Новосибирск, ул. Ипподромская 54</p>
+            </div>
+        </div>
+        <div id="under_part">
+            <p>Обращаем ваше внимание на то, что данный интернет-сайт носит исключительно информационный характер и
+                ни при каких условиях не является публичной офертой, определяемой положениями Статьи 437 (2)
+                Гражданского кодекса Российской Федерации. Для получения подробной информации о наличии и
+                стоимости указанных товаров и (или) услуг, пожалуйста, обращайтесь к менеджеру сайта с помощью
+                специальной формы связи или по телефону 8 (383) 209-24-24</p>
+            <p> 2015-2020 HUTER Новосибирск</p>
+        </div>
+    </div>
+    <div id="right_space"></div>
+</div>
+
+</body>
+</html>
