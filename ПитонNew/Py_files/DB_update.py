@@ -36,7 +36,7 @@ try:
 except Exception:
     arg_name.append(arg_product_type)
     arg_product_type = ''
-# print(arg_name, arg_product_type_adjf, arg_product_type)
+
 answ = []
 if len(arg_name) > 0:
     if arg_product_type != '':

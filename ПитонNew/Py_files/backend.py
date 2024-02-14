@@ -58,7 +58,7 @@ def search(line):
         if arg_product_type != '':
             for i in arg_name:
                 product_name = cur.execute("""SELECT name, id
-                                                      FROM xpertools 
+                                                     FROM xpertools 
                                                       WHERE product_type = '{0}' AND name LIKE '%{2}%' """.format(
                     arg_product_type, arg_product_type_adjf, i)).fetchall()
                 for i in product_name:
