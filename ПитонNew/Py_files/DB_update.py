@@ -34,21 +34,25 @@ for i in range(len(product_input)):
 try:
     arg_product_type = cur.execute("""SELECT id FROM xpertools_type WHERE type = '{0}' """.format(arg_product_type, )).fetchall()[0][0]
 except Exception:
-    pass
-
+    arg_name.append(arg_product_type)
+    arg_product_type = ''
+# print(arg_name, arg_product_type_adjf, arg_product_type)
 answ = []
 if len(arg_name) > 0:
     if arg_product_type != '':
         for i in arg_name:
-            product_name = cur.execute("""SELECT name FROM xpertools WHERE product_type = '{0}' AND name LIKE '%{2}%' """.format(arg_product_type, arg_product_type_adjf, i)).fetchall()
-            answ.append(product_name)
+            product_name = cur.execute("""SELECT id, name FROM xpertools WHERE product_type = '{0}' AND name LIKE '%{2}%' """.format(arg_product_type, arg_product_type_adjf, i)).fetchall()
+            for i in product_name:
+                answ.append(i)
     else:
         for i in arg_name:
-            product_name = cur.execute("""SELECT name FROM xpertools WHERE name LIKE '%{1}%' AND name LIKE '%{0}%' """.format( arg_product_type_adjf, i)).fetchall()
-            answ.append(product_name)
+            product_name = cur.execute("""SELECT id, name FROM xpertools WHERE name LIKE '%{1}%' AND name LIKE '%{0}%' """.format( arg_product_type_adjf, i)).fetchall()
+            for i in product_name:
+                answ.append(i)
 else:
     product_name = cur.execute("""SELECT name FROM xpertools WHERE product_type = ? """, (arg_product_type,)).fetchall()
-    answ.append(product_name)
+    for i in product_name:
+        answ.append(i)
 pprint(answ)
 
 # con.commit()

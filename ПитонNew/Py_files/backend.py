@@ -19,18 +19,66 @@ def forming_n_in_row(n, data):
     # позвращаем матрицу шириной n
     return result
 
-# путь к базе данных
-# file_path = "C://Program Files//SQLiteStudio//All_bases//first.db"
-# устанавливаем соединение
+def search(line):
+    product_input = line
 
-# cur = data.cursor()
-# выполняем запрос к базе данных
-# product_name = cur.execute('SELECT name, path_image FROM zubr')
-# answ = forming_n_in_row(2, product_name)
-# print(answ)
-# используем функцию для формирования католога с определённым количество колонок
-# data.commit()
-# data.close()
+    data = sqlite3.connect("DataBase/tution.db")
+    cur = data.cursor()
+
+    # подключаем морф чтобы определять часть речи
+    morph = pymorphy3.MorphAnalyzer()
+
+    # ключи для поика
+    arg_product_type = ''
+    arg_product_type_adjf = ''
+    arg_name = []
+
+    # проходим по каждому слову из строки
+    for i in range(len(product_input)):
+        word = product_input[i]
+        # существительное в большенстве случаев является видом товара
+        if word.isalpha() and "NOUN" in morph.parse(word.lower())[0].tag and arg_product_type == '':
+            arg_product_type = morph.parse(word)[0].inflect({'plur'}).word
+        # прилагательное в большинстве случаев является подвидом товара
+        elif "ADJF" in morph.parse(word.lower())[0].tag:
+            arg_product_type_adjf = morph.parse(word)[0].normal_form
+        # разделяем все слова на содержащие спецсимволы и цифры и на обычные слова
+        else:
+            arg_name.append(word)
+
+    try:
+        arg_product_type = cur.execute("""SELECT id FROM xpertools_type 
+                                            WHERE type = '{0}' """.format(arg_product_type)).fetchall()[0][0]
+    except Exception:
+        arg_name.append(arg_product_type)
+        arg_product_type = ''
+
+    answ = []
+    if len(arg_name) > 0:
+        if arg_product_type != '':
+            for i in arg_name:
+                product_name = cur.execute("""SELECT name, id
+                                                      FROM xpertools 
+                                                      WHERE product_type = '{0}' AND name LIKE '%{2}%' """.format(
+                    arg_product_type, arg_product_type_adjf, i)).fetchall()
+                for i in product_name:
+                    answ.append(i)
+        else:
+            for i in arg_name:
+                product_name = cur.execute("""SELECT name, id
+                                                        FROM xpertools 
+                                                        WHERE name LIKE '%{1}%' AND name LIKE '%{0}%' """.format(
+                    arg_product_type_adjf, i)).fetchall()
+                for i in product_name:
+                    answ.append(i)
+    else:
+        product_name = cur.execute("""SELECT name, id
+                                                FROM xpertools 
+                                                WHERE product_type = ? """, (arg_product_type,)).fetchall()
+        for i in product_name:
+            answ.append(i)
+
+    return answ
 
 app = Flask(__name__)
 
@@ -41,78 +89,12 @@ def base():
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
+
         product_input = request.form['products'].split()
 
-        data = sqlite3.connect("DataBase/tution.db")
-        cur = data.cursor()
+        goods = search(product_input)
 
-        product_brands = ["зубр", "zubr", "ресанта", "рисанта", "resanta", "хутер", "хутэр", "huter", "штиль", "stihl",
-                          "евролюкс", "eurolux"]
-        # подключаем морф чтобы определять часть речи
-        morph = pymorphy3.MorphAnalyzer()
-
-        # ключи для поика
-        arg_sku = ''
-        arg_product_type = ''
-        arg_product_subtype = ''
-        arg_brand = ''
-        arg_name = ''
-
-        # проходим по каждому слову из строки
-        for i in range(len(product_input)):
-            word = product_input[i]
-            # определяем является ли слово брендом
-            if word.lower() in product_brands:
-                arg_brand = word.lower()
-            # существительное в большенстве случаев является видом товара
-            elif "NOUN" in morph.parse(word.lower())[0].tag and arg_product_type == '':
-                arg_product_type = morph.parse(word)[0].normal_form
-            # прилагательное в большинстве случаев является подвидом товара
-            elif "ADJF" in morph.parse(word.lower())[0].tag:
-                arg_product_subtype = morph.parse(word)[0].normal_form
-            # разделяем все слова на содержащие спецсимволы и цифры и на обычные слова
-            elif word.isalpha():
-                # если нет, добавляем слово в раздел проверки по имени товара
-                arg_name = arg_name + word
-            else:
-                # проверяем наличие спецсивловол
-                if "." not in word and "-" not in word:
-                    special_char = "\/"
-                    # на случай если пользователь написал артикул с пробелами
-                    if len(word) < 2:
-                        arg_sku = product_input[i - 1] + product_input[i] + product_input[i + 1]
-                    # если есть \/ то это 100% артикул
-                    elif special_char[0] in word or special_char[1] in word:
-                        arg_sku = word
-                    else:
-                        # иначе это модель товара
-                        arg_name = arg_name + " " + word
-                else:
-                    # это тоже модель или артику
-                    arg_name = arg_name + " " + word
-
-        # если не нашло артикула вида 00/00/00 записываем модель как артикул
-        if arg_sku == None:
-            arg_sku = arg_name
-
-        # приводим бренд в нужный формат
-        convertation = {"рисанта": "ресанта", "resanta": "ресанта", "zubr": "зубр", "хутер": "huter",
-                        "хутэр": "huter", "штиль": "stihl", "евролюкс": "eurolux"}
-
-        if arg_brand in convertation:
-            arg_brand = convertation[arg_brand]
-
-        # print(arg_sku, "|", arg_brand, "|", arg_product_type[:-1], "|", arg_product_subtype, "|", arg_name)
-        product_name = cur.execute("""SELECT name, path_image
-                            FROM zubr 
-                            WHERE product_type LIKE '%{2}%' AND brand LIKE '%{1}%' 
-                            AND sku LIKE '%{0}%' AND name LIKE '%{3}%' AND name LIKE '%{4}%' """.format(arg_sku,
-                                                                                                        arg_brand,
-                                                                                                        arg_product_type[:-1],
-                                                                                                        arg_product_subtype[:-2],
-                                                                                                        arg_name)).fetchall()
-        answ = forming_n_in_row(2, product_name)
-        # print(answ)
+        answ = forming_n_in_row(2, goods)
 
         return render_template('index.html', product=answ)
     else:
