@@ -1,0 +1,27 @@
+#menu_footer {text-decoration: none;
+              color: white;
+              font-weight: bold;}
+#footer {color: white;
+         background-color: #273746;
+         display: flex;
+         flex-direction: row;
+         margin-bottom: 0px;
+         margin-right: 0px;}
+#upper_part_3col {display: flex;
+                  flex-direction: row;
+                  padding: 10px;
+                  margin: 10px;
+                  align-content: center;
+                  border-bottom: 1px solid white;}
+#left_col {float: left;
+            margin: 5px;
+            width: 30%;
+            text-align: center;}
+#cent_col {float: center;
+            margin: 5px;
+            width: 30%;
+            text-align: center;}
+#right_col {float: right;
+            margin: 5px;
+            width: 30%;
+            text-align: center;}

@@ -16,6 +16,8 @@ def forming_n_in_row(n, data):
         else:
             preparing.append(inf[1][0])
             preparing.append(inf[1][1])
+    if len(preparing) > 0:
+        result.append(preparing)
     # позвращаем матрицу шириной n
     return result
 
@@ -110,8 +112,8 @@ def home():
     if request.method == 'POST':
         product_input = request.form['products'].split()
         goods = search_by_input(product_input)
-        answ = forming_n_in_row(2, goods)
-        return render_template('caralog_page.html', product=answ)
+        answ = forming_n_in_row(3, goods)
+        return render_template('catalog_page.html', product=answ)
     else:
         return render_template('index.html', product=[])
 
@@ -121,25 +123,27 @@ def catalog():
     if request.method == 'POST':
         product_input = request.form['products'].split()
         goods = search_by_input(product_input)
-        answ = forming_n_in_row(2, goods)
-        return render_template('caralog_page.html', product=answ)
+        answ = forming_n_in_row(3, goods)
+        return render_template('catalog_page.html', product=answ)
     else:
         answ = get_categories()
         answ = forming_n_in_row(3, answ)
         return render_template('catalog.html', categories=answ)
 
 
-@app.route('/catalog/<name>', methods=['GET', 'POST'])
-def catalog_named(name):
+@app.route('/catalog/<id>', methods=['GET', 'POST'])
+def catalog_named(id):
     if request.method == 'POST':
         product_input = request.form['products'].split()
         goods = search_by_input(product_input)
         answ = forming_n_in_row(3, goods)
         return render_template('catalog_page.html', product=answ)
+    elif len(id.split()) > 1:
+        goods = search_by_id(id.split()[-1])
+        answ = forming_n_in_row(3, goods)
+        return render_template('catalog_page.html', product=answ)
     else:
-        goods = search_by_id(name.split()[1])
-        goods = forming_n_in_row(2, goods)
-        return render_template('catalog_page.html', product=goods)
+        return 1111
 
 
 @app.route('/item/<name>', methods=['GET', 'POST'])
@@ -150,8 +154,11 @@ def item(name):
         answ = forming_n_in_row(3, goods)
         return render_template('catalog_page.html', product=answ)
     else:
-
-        return name
+        need = name.split()
+        name, id = " ".join(need[:-1]), need[-1]
+        return render_template("item.html", title=name,
+                               image_item_path="/static/image/test_item.png",
+                               image_sale_path="/static/image/sale_item.png")
 
 
 if __name__ == '__main__':

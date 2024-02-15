@@ -34,6 +34,9 @@
             <a href="/item/{{ product[6] }} {{ product[7] }}" id="product"><div  id="col"> {{ product[6] }}
             <img id="two_col" src=" {{ product[7] }} "> </div></a>
             <div class="w-100"></div>
+        {% else %}
+            <a href="/item/{{ product[0] }} {{ product[1] }}" id="product"> <div id="col"> {{ product[0] }}
+            <img id="two_col" src=" {{ product[1] }} "> </div> </a>
         {% endif %}
         </div>
     {% endfor %}

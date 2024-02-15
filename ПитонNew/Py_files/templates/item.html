@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+
+<div id="object">
+    <div id="left_space"></div>
+    <div id="content">
+        <div id="product_title"> {{ title }}</div>
+        <div id="main_item_body">
+            <div id="main_pic">
+                <img id="pic" src=" {{ image_item_path }}">
+            </div>
+            <div id="item_sale">
+                <img id="pic" src=" {{ image_sale_path }}">
+            </div>
+            <div id="main_inf">
+                <p>Гарантия 1 год!</p>
+                <p> Бесплатное обслуживание 1 раз в год! (для всей бензотехники)</p>
+                <p> Нашли дешевле сделаем скидку 20% от разницы!</p>
+                <p> Бесплатная доставка по городу!</p>
+                <p> Для консультации свяжитесь с нашим менеджером 8 (383) 209-24-24</p>
+                <p> 48 290 р. </p>
+                <p> Рассрочка 0% (проценты платит магазин)</p>
+                <p> 4024 ₽ x 12 мес </p>
+
+                <div id="object">
+                    <div id="amount">Место для счётчика</div>
+                    <button id="bin_item">В Корзину</button>
+                </div>
+                <button id="buy_btn">Купить в 1 клик</button>
+            </div>
+        </div>
+    </div>
+    <div id="right_space"></div>
+</div>
+{% endblock %}

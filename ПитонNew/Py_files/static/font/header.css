@@ -1,0 +1,42 @@
+#header {display: flex;
+         flex-direction: row;
+         width: 99%;}
+#header_menu{width:100%;}
+#basic_inf{background-color: white;
+           display: flex;
+           flex-direction: row;}
+
+#type{width: 30%;
+      margin-left: 5px;
+      margin-right: 5px;
+      text-align: center;}
+#streets{margin-left: 5px;
+         margin-right: 5px;
+         width: 30%;
+         text-align: center;}
+#contact{margin-left: 5px;
+         margin-right: 5px;
+         width: 20%;
+         text-align: center;}
+#bin {margin-left: 5px;
+      width: 10%;
+      text-align: center;}
+
+#btn_row {display: flex;
+         flex-direction: row;}
+#btn_header_a {text-decoration: none;
+               margin: 0px;
+               width: 20%;}
+#btn_header_div {background-color: yellow;
+             margin: 0px;
+             padding: 7px;
+             border: 1px solid black;
+             color: black;
+             text-align: center;
+             font-weight: bold;}
+#btn_header_div:hover {background-color: #FAFC75;}
+
+#type_store {font-weight: bold;}
+#products_input {width: 100%;
+                 margin-top: 5px;
+                 margin-bottom: 5px;}
