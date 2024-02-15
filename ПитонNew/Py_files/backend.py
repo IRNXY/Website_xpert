@@ -19,7 +19,7 @@ def forming_n_in_row(n, data):
     # позвращаем матрицу шириной n
     return result
 
-def search(line):
+def search_by_input(line):
     product_input = line
 
     data = sqlite3.connect("DataBase/tution.db")
@@ -50,8 +50,11 @@ def search(line):
         arg_product_type = cur.execute("""SELECT id FROM xpertools_type 
                                             WHERE type = '{0}' """.format(arg_product_type)).fetchall()[0][0]
     except Exception:
-        arg_name.append(arg_product_type)
-        arg_product_type = ''
+        if arg_product_type != '':
+            arg_name.append(arg_product_type)
+            arg_product_type = ''
+
+    # print(arg_name, arg_product_type, arg_product_type_adjf)
 
     answ = []
     if len(arg_name) > 0:
@@ -68,7 +71,7 @@ def search(line):
                 product_name = cur.execute("""SELECT name, id
                                                         FROM xpertools 
                                                         WHERE name LIKE '%{1}%' AND name LIKE '%{0}%' """.format(
-                    arg_product_type_adjf, i)).fetchall()
+                                                                arg_product_type_adjf, i)).fetchall()
                 for i in product_name:
                     answ.append(i)
     else:
@@ -77,53 +80,79 @@ def search(line):
                                                 WHERE product_type = ? """, (arg_product_type,)).fetchall()
         for i in product_name:
             answ.append(i)
-
     return answ
+
+
+def search_by_id(id):
+    data = sqlite3.connect("DataBase/tution.db")
+    cur = data.cursor()
+    need = cur.execute("""SELECT name, id FROM xpertools WHERE product_type = ?""", (id,)).fetchall()
+    return need
+
+def get_categories():
+    data = sqlite3.connect("DataBase/tution.db")
+    cur = data.cursor()
+
+    need = cur.execute("""SELECT type, id FROM xpertools_type""").fetchall()
+    return need
+
 
 app = Flask(__name__)
 
-@app.route('/base')
+
+@app.route('/base',)
 def base():
     return render_template('base.html')
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
-
         product_input = request.form['products'].split()
-
-        goods = search(product_input)
-
+        goods = search_by_input(product_input)
         answ = forming_n_in_row(2, goods)
-
-        return render_template('index.html', product=answ)
+        return render_template('caralog_page.html', product=answ)
     else:
         return render_template('index.html', product=[])
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
 
-@app.route('/test')
-def test():
-    return render_template('test.html')
-
-
-@app.route('/item/<username>')
-def user_profile(username):
-    return f"Это профиль пользователя {username}"
-
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route("/catalog", methods=['GET', 'POST'])
+def catalog():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        # проверка логина и пароля
-        print(username, password)
-        return 'Вы вошли в систему!'
+        product_input = request.form['products'].split()
+        goods = search_by_input(product_input)
+        answ = forming_n_in_row(2, goods)
+        return render_template('caralog_page.html', product=answ)
     else:
-        return render_template('login.html')
+        answ = get_categories()
+        answ = forming_n_in_row(3, answ)
+        return render_template('catalog.html', categories=answ)
+
+
+@app.route('/catalog/<name>', methods=['GET', 'POST'])
+def catalog_named(name):
+    if request.method == 'POST':
+        product_input = request.form['products'].split()
+        goods = search_by_input(product_input)
+        answ = forming_n_in_row(3, goods)
+        return render_template('catalog_page.html', product=answ)
+    else:
+        goods = search_by_id(name.split()[1])
+        goods = forming_n_in_row(2, goods)
+        return render_template('catalog_page.html', product=goods)
+
+
+@app.route('/item/<name>', methods=['GET', 'POST'])
+def item(name):
+    if request.method == 'POST':
+        product_input = request.form['products'].split()
+        goods = search_by_input(product_input)
+        answ = forming_n_in_row(3, goods)
+        return render_template('catalog_page.html', product=answ)
+    else:
+
+        return name
+
 
 if __name__ == '__main__':
     app.run(debug=True)
