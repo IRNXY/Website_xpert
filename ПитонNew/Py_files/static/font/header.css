@@ -21,6 +21,9 @@
 #bin {margin-left: 5px;
       width: 10%;
       text-align: center;}
+#bin_test_footer {text-decoration: none;
+                  color: black;
+}
 
 #btn_row {display: flex;
          flex-direction: row;}

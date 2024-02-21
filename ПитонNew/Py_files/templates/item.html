@@ -27,9 +27,10 @@
 
                 <div id="object">
                     <div id="amount">Место для счётчика</div>
-                    <button id="bin_item">В Корзину</button>
+<!--                    <a href="/bin/{{ id }}" id="bin_item">В Корзину</a>-->
+                    <a id="bin_item" onclick="addOrUpdateUrlParam('id', {{ id }})">В Корзину</a>
                 </div>
-                <button id="buy_btn">Купить в 1 клик</button>
+                <a href="" id="buy_btn">Купить в 1 клик</a>
             </div>
         </div>
     </div>

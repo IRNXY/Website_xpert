@@ -84,6 +84,8 @@ def search_by_input(line):
             answ.append(i)
     return answ
 
+def search_sale_prod(arg):
+    pass
 
 def search_by_id(id):
     data = sqlite3.connect("DataBase/tution.db")
@@ -98,6 +100,8 @@ def get_categories():
     need = cur.execute("""SELECT type, id FROM xpertools_type""").fetchall()
     return need
 
+
+list_product_bin = []
 
 app = Flask(__name__)
 
@@ -115,7 +119,11 @@ def home():
         answ = forming_n_in_row(3, goods)
         return render_template('catalog_page.html', product=answ)
     else:
-        return render_template('index.html', product=[])
+        answ = get_categories()
+        answ = forming_n_in_row(5, answ)
+
+
+        return render_template('index.html', categories=answ, prod_with_sale=[])
 
 
 @app.route("/catalog", methods=['GET', 'POST'])
@@ -148,6 +156,8 @@ def catalog_named(id):
 
 @app.route('/item/<name>', methods=['GET', 'POST'])
 def item(name):
+    need = request.args.get('id')
+
     if request.method == 'POST':
         product_input = request.form['products'].split()
         goods = search_by_input(product_input)
@@ -156,9 +166,26 @@ def item(name):
     else:
         need = name.split()
         name, id = " ".join(need[:-1]), need[-1]
-        return render_template("item.html", title=name,
+        return render_template("item.html", title=name, id=id,
                                image_item_path="/static/image/test_item.png",
                                image_sale_path="/static/image/sale_item.png")
+
+
+@app.route('/bin', methods=['GET', 'POST'])
+def bin():
+    if request.method == 'POST':
+        product_input = request.form['products'].split()
+        goods = search_by_input(product_input)
+        answ = forming_n_in_row(3, goods)
+        return render_template('catalog_page.html', product=answ)
+    else:
+        answ = []
+        list_product_bin.append(id)
+        for i in list_product_bin:
+            goods = search_by_id(i)
+            answ.append(goods[0])
+        print(answ)
+        # return render_template("bin.html")
 
 
 if __name__ == '__main__':
