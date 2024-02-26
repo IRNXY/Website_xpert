@@ -5,9 +5,26 @@
 {% block content %}
 
 
-<h1 id="counter-display">0</h1>
-<button onclick="handleClick(-1)">-</button>
-<button onclick="handleClick(1)">+</button>
+<div id="object">
+    <div id="left_space"></div>
+
+    <div id="bin_list">
+        {% set bin_products = bin %}
+        {% for product in bin_products %}
+            <div id="bin_row">
+                <img src="{{ product[1] }}">
+                <a href="/item/{{ product[0] }} {{ product[1] }}"> {{ product[0] }}</a>
+                <p> цена</p>
+                <button onclick="handleClick(-1)">-</button>
+                <h5 id="counter-display"> {{ product[2] }}</h5>
+                <button onclick="handleClick(1)">+</button>
+                <p> итог </p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div id="right_space"></div>
+</div>
 
 
 {% endblock %}

@@ -84,13 +84,22 @@ def search_by_input(line):
             answ.append(i)
     return answ
 
-def search_sale_prod(arg):
-    pass
+def search_sale_prod(num_of_prod):
+    data = sqlite3.connect("DataBase/tution.db")
+    cur = data.cursor()
+    need = cur.execute("""SELECT name, id FROM xpertools WHERE on_sale = 1""").fetchall()
+    return need[:num_of_prod]
 
 def search_by_id(id):
     data = sqlite3.connect("DataBase/tution.db")
     cur = data.cursor()
-    need = cur.execute("""SELECT name, id FROM xpertools WHERE product_type = ?""", (id,)).fetchall()
+    need = cur.execute("""SELECT name, id FROM xpertools WHERE id = ?""", (id,)).fetchall()
+    return need
+
+def search_by_type(type):
+    data = sqlite3.connect("DataBase/tution.db")
+    cur = data.cursor()
+    need = cur.execute("""SELECT name, id FROM xpertools WHERE product_type = ?""", (type,)).fetchall()
     return need
 
 def get_categories():
@@ -101,7 +110,7 @@ def get_categories():
     return need
 
 
-list_product_bin = []
+list_product_bin = dict()
 
 app = Flask(__name__)
 
@@ -119,11 +128,14 @@ def home():
         answ = forming_n_in_row(3, goods)
         return render_template('catalog_page.html', product=answ)
     else:
-        answ = get_categories()
-        answ = forming_n_in_row(5, answ)
+        cat = get_categories()
+        cat = forming_n_in_row(5, cat)
 
-
-        return render_template('index.html', categories=answ, prod_with_sale=[])
+        sal = search_sale_prod(4)
+        sal = forming_n_in_row(4, sal)
+        print(sal)
+        print(cat)
+        return render_template('index.html', categories=cat, prod_with_sale=sal)
 
 
 @app.route("/catalog", methods=['GET', 'POST'])
@@ -133,7 +145,7 @@ def catalog():
         goods = search_by_input(product_input)
         answ = forming_n_in_row(3, goods)
         return render_template('catalog_page.html', product=answ)
-    else:
+    elif request.method == 'GET':
         answ = get_categories()
         answ = forming_n_in_row(3, answ)
         return render_template('catalog.html', categories=answ)
@@ -146,8 +158,8 @@ def catalog_named(id):
         goods = search_by_input(product_input)
         answ = forming_n_in_row(3, goods)
         return render_template('catalog_page.html', product=answ)
-    elif len(id.split()) > 1:
-        goods = search_by_id(id.split()[-1])
+    elif request.method == 'GET':
+        goods = search_by_type(id.split()[-1])
         answ = forming_n_in_row(3, goods)
         return render_template('catalog_page.html', product=answ)
     else:
@@ -156,7 +168,11 @@ def catalog_named(id):
 
 @app.route('/item/<name>', methods=['GET', 'POST'])
 def item(name):
-    need = request.args.get('id')
+
+    need = request.args.get('id', default=0)
+    if need != 0:
+        id_in_bin, amount_in_bin = need.split("-")
+        list_product_bin[int(id_in_bin)] = int(amount_in_bin)
 
     if request.method == 'POST':
         product_input = request.form['products'].split()
@@ -180,12 +196,20 @@ def bin():
         return render_template('catalog_page.html', product=answ)
     else:
         answ = []
-        list_product_bin.append(id)
+        print(list_product_bin)
+
         for i in list_product_bin:
+            need = []
             goods = search_by_id(i)
-            answ.append(goods[0])
+
+            for e in goods[0]:
+                need.append(e)
+            print(need)
+            need.append(list_product_bin[i])
+            answ.append(need)
+
         print(answ)
-        # return render_template("bin.html")
+        return render_template("bin.html", bin=answ)
 
 
 if __name__ == '__main__':

@@ -14,6 +14,26 @@
             </div>
             <div id="item_sale">
                 <img id="pic" src=" {{ image_sale_path }}">
+
+                <div id="timer">
+                    <div id="days">
+                        <p id="days_num"> 00</p>
+                        <p id="days_str"> дни</p>
+                    </div>
+                    <div id="hours">
+                        <p id="hours_num"> 00</p>
+                        <p id="days_str"> часы</p>
+                    </div>
+                    <div id="minutes">
+                        <p id="minutes_num"> 00</p>
+                        <p id="days_str"> минуты</p>
+                    </div>
+                    <div id="seconds">
+                        <p id="seconds_num"> 00</p>
+                        <p id="days_str"> секунды</p>
+                    </div>
+                </div>
+
             </div>
             <div id="main_inf">
                 <p>Гарантия 1 год!</p>
@@ -26,8 +46,11 @@
                 <p> 4024 ₽ x 12 мес </p>
 
                 <div id="object">
-                    <div id="amount">Место для счётчика</div>
-<!--                    <a href="/bin/{{ id }}" id="bin_item">В Корзину</a>-->
+                    <div id="amount">
+                        <h5 id="counter-display">1</h5>
+                        <button onclick="handleClick(-1)">-</button>
+                        <button onclick="handleClick(1)">+</button>
+                    </div>
                     <a id="bin_item" onclick="addOrUpdateUrlParam('id', {{ id }})">В Корзину</a>
                 </div>
                 <a href="" id="buy_btn">Купить в 1 клик</a>
