@@ -122,20 +122,36 @@ def base():
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    cat = get_categories()
+    cat = forming_n_in_row(5, cat)
+
+    sal = search_sale_prod(4)
+    sal = forming_n_in_row(4, sal)
+
+    product_input, contact_name, contact_phone = '', '', ''
+
     if request.method == 'POST':
-        if len(request.form['products']) != 0:
+
+        try:
             product_input = request.form['products'].split()
+        except Exception:
+            pass
+
+        try:
+            contact_name = request.form['name']
+            contact_phone = request.form['phone']
+        except Exception:
+            pass
+
+        if len(product_input) > 0:
             goods = search_by_input(product_input)
             answ = forming_n_in_row(3, goods)
             return render_template('catalog_page.html', product=answ)
         else:
-            pass
-    else:
-        cat = get_categories()
-        cat = forming_n_in_row(5, cat)
 
-        sal = search_sale_prod(4)
-        sal = forming_n_in_row(4, sal)
+            return render_template("index.html", categories=cat, prod_with_sale=sal)
+
+    else:
         return render_template('index.html', categories=cat, prod_with_sale=sal)
 
 
@@ -207,7 +223,7 @@ def bin():
                 need.append(e)
             need.append(list_product_bin[i])
             answ.append(need)
-
+        print(answ)
         return render_template("bin.html", bin=answ)
 
 

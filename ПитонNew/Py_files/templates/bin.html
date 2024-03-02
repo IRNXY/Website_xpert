@@ -4,27 +4,52 @@
 
 {% block content %}
 
+<div id="w">
+    <h1>Корзина</h1>
+</div>
 
 <div id="object">
-    <div id="left_space"></div>
+    <div id="left_space_20"></div>
 
     <div id="bin_list">
+        <div id="bin_row">
+            <div id="name_title"></div>
+            <div id="price_title">Цена</div>
+            <div id="amount_title">Кол-во</div>
+            <div id="final_sum_title">Итого</div>
+        </div>
         {% set bin_products = bin %}
         {% for product in bin_products %}
             <div id="bin_row">
-                <img src="{{ product[1] }}">
-                <a href="/item/{{ product[0] }} {{ product[1] }}"> {{ product[0] }}</a>
-                <p> цена</p>
-                <button onclick="handleClick(-1)">-</button>
-                <h5 id="counter-display"> {{ product[2] }}</h5>
-                <button onclick="handleClick(1)">+</button>
-                <p> итог </p>
+                <img src="{{ product[1] }}" id="bin_pic">
+                <a href="/item/{{ product[0] }} {{ product[1] }}" id="prod_name"> {{ product[0] }}</a>
+                <p id="prod_price"> 10 000 p.</p>
+                <div id="prod_amount">
+                    <button onclick="handleClick_bin(-1, {{ product[1] }})" id="click_btn">-</button>
+                    <h5 id="counter-display{{ product[1] }}" class="num_of_prod"> {{ product[2] }}</h5>
+                    <button onclick="handleClick_bin(1, {{ product[1] }})" id="click_btn">+</button>
+                </div>
+                <p id="prod_total"> 20 000 p. </p>
             </div>
         {% endfor %}
     </div>
 
-    <div id="right_space"></div>
-</div>
+    <div id="total">
+        <h5>Сумма заказов</h5>
+        <div id="inf_total">
+            <div id="left_box">
+                <p id="vert_center">Итого</p>
+            </div>
+            <div id="right_box">
+                <p id="vert_center">25 038 p.</p>
+            </div>
+        </div>
+        <a href="" id="btn_confirm">
+            <div id="btn_conf">Оформить заказ</div>
+        </a>
+    </div>
 
+    <div id="right_space_20"></div>
+</div>
 
 {% endblock %}

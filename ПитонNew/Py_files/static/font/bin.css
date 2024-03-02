@@ -1,2 +1,64 @@
 #bin_row {display: flex;
-        flex-direction: row;}
+         flex-direction: row;
+         margin-top: 10px;
+         margin-bottom: 10px;}
+
+#name_title{width: 52%;}
+#price_title{width: 16%;}
+#amount_title{width: 16%;
+              padding-left: 2%;}
+#final_sum_title{width: 16%;}
+
+#prod_name {width: 50%;
+            text-decoration: none;
+            color: black;
+            font-size: 16px;}
+#prod_price {width: 16%;}
+#prod_total {width: 10%;}
+#prod_amount {width: 16%;
+              display: flex;
+              flex-direction: row;}
+
+#bin_list {width: 80%;}
+#total {width: 20%;
+        height: 200px;}
+
+#right_space_20 {width: 20%}
+#left_space_20 {width: 20%}
+
+.num_of_prod {border-bottom: 1px solid grey;
+              border-top: 1px solid grey;
+              margin: 4px;
+              width: 30px;
+              text-align: center;}
+#click_btn {text-align: center;
+            width: 30px;
+            background-color: white;
+            border: none;
+            color: red;}
+
+#inf_total {display: flex;
+            flex-direction: row;
+            background-color: #EDEDED;
+            margin-bottom: 20px;}
+#left_box {text-align: left;
+           width: 50%;
+           padding-left: 10px;
+           padding: 10px;}
+#right_box {text-align: right;
+            width: 50%;
+            padding-right: 10px;
+            padding: 10px;}
+#vert_center {padding: 0px;
+              margin: 0px;
+              font-weight: bold;}
+
+#btn_confirm {text-decoration: none;
+              color: black;
+              text-align: center;
+              width: 100%;
+              font-weight: bold;}
+#btn_conf {background-color: yellow;
+           padding: 10px;}
+
+
