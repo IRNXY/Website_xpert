@@ -10,10 +10,14 @@
     </div>
     <div id="right_space"></div>
 </div>
-
+<div id="w">
+    <h1>Категории товаров</h1>
+</div>
 <div id="left_space"></div>
 
 <div id="object">
+    <div id="left_space"></div>
+
     <div id="catalog">
         {% set categories_name = categories %}
         {% for product in categories_name %}
@@ -63,6 +67,9 @@
 <div id="w">
     <h1>Акция на товары</h1>
 </div>
+<div id="object">
+    <div id="left_space"></div>
+
     <div id="catalog">
         {% set sale_products = prod_with_sale %}
         {% for product in sale_products %}
@@ -100,5 +107,26 @@
         </div>
     {% endfor %}
     </div>
+    <div id="right_space"></div>
+</div>
 
+<div id="object">
+    <div id="left_space_40"></div>
+
+    <div id="content">
+        <div id="w">
+            <h1>Сделать заказ</h1>
+            <h4>НАШ МЕНЕДЖЕР СВЯЖЕТСЯ С ВАМИ В ТЕЧЕНИЕ 10 МИНУТ !</h4>
+        </div>
+        <div id="service">
+            <form method="post">
+                <input type="text" id="name" name="name" placeholder="Имя" required>
+                <input type="text" id="phone" name="phone" placeholder="Телефон" required>
+                <button type="submit" class="btn btn-primary" id="send_form">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="right_space_40"></div>
+</div>
 {% endblock %}

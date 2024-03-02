@@ -1,4 +1,4 @@
-
+var count = 1
 function handleClick(arg) {
     count = Number(document.getElementById("counter-display").textContent);
     if ( count + arg >= 1){
@@ -13,7 +13,7 @@ function addOrUpdateUrlParam(name, value){
     if(regex.test(href))
     {
     regex = new RegExp("([&\\?])" + name + "=\\d+");
-    window.location.href = href.replace(regex, "$1" + name + "=" + value + " " + count);
+    window.location.href = href.replace(regex, "$1" + name + "=" + value + "-" + count);
     }
     else
     {

@@ -39,8 +39,8 @@ for i in range(3, len(images)):
 # for i in need:
 #     try:
 #         i = str(i)
-#         left = i.index("href")
-#         right = i.index('itemprop="url"')
+#         left = i.index.css("href")
+#         right = i.index.css('itemprop="url"')
 #         one.append(i[left+6:right-2])
 #     except Exception:
 #         pass
@@ -54,8 +54,8 @@ for i in range(3, len(images)):
 #     soup = BeautifulSoup(content, 'html.parser')
 #
 #     a = str(soup.find(itemprop="description"))
-#     left = a.index("<p>")
-#     right = a.index("</article>")
+#     left = a.index.css("<p>")
+#     right = a.index.css("</article>")
 #     print(a[left+3:right])
 #
 #     print()

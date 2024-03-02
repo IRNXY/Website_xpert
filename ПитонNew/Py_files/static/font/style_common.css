@@ -1,6 +1,6 @@
 body {margin: 0px;
       padding-right: 0px;
-      width: 99%;}
+      width: 100%;}
 
 #sale_announcement{background-color: red;}
 
@@ -12,13 +12,11 @@ body {margin: 0px;
 #w {width: 100%;
     text-align: center;}
 
-#center {}
-
 #left_space {width: 10%;}
 #right_space {width: 10%;}
 
-
-
+#left_space_40 {width: 40%;}
+#right_space_40 {width: 40%;}
 
 
 

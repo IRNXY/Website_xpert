@@ -123,18 +123,19 @@ def base():
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
-        product_input = request.form['products'].split()
-        goods = search_by_input(product_input)
-        answ = forming_n_in_row(3, goods)
-        return render_template('catalog_page.html', product=answ)
+        if len(request.form['products']) != 0:
+            product_input = request.form['products'].split()
+            goods = search_by_input(product_input)
+            answ = forming_n_in_row(3, goods)
+            return render_template('catalog_page.html', product=answ)
+        else:
+            pass
     else:
         cat = get_categories()
         cat = forming_n_in_row(5, cat)
 
         sal = search_sale_prod(4)
         sal = forming_n_in_row(4, sal)
-        print(sal)
-        print(cat)
         return render_template('index.html', categories=cat, prod_with_sale=sal)
 
 
@@ -171,7 +172,8 @@ def item(name):
 
     need = request.args.get('id', default=0)
     if need != 0:
-        id_in_bin, amount_in_bin = need.split("-")
+        string = need.split("-")
+        id_in_bin, amount_in_bin = string[0], string[-1]
         list_product_bin[int(id_in_bin)] = int(amount_in_bin)
 
     if request.method == 'POST':
@@ -196,7 +198,6 @@ def bin():
         return render_template('catalog_page.html', product=answ)
     else:
         answ = []
-        print(list_product_bin)
 
         for i in list_product_bin:
             need = []
@@ -204,11 +205,9 @@ def bin():
 
             for e in goods[0]:
                 need.append(e)
-            print(need)
             need.append(list_product_bin[i])
             answ.append(need)
 
-        print(answ)
         return render_template("bin.html", bin=answ)
 
 
