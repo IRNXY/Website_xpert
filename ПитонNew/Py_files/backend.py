@@ -1,25 +1,8 @@
 import sqlite3
 import pymorphy3
 from flask import Flask, request, render_template
+import telebot
 
-# передаём жедаемое количество колонок(n) и сами данные
-def forming_n_in_row(n, data):
-    result = []
-    preparing = []
-    for inf in enumerate(data):
-        # проходимся по списку data и складируем элементы в preparing. На каждом n элементе переносим промежуточный список в result
-        if (inf[0] + 1) % n == 0:
-            preparing.append(inf[1][0])
-            preparing.append(inf[1][1])
-            result.append(preparing)
-            preparing = []
-        else:
-            preparing.append(inf[1][0])
-            preparing.append(inf[1][1])
-    if len(preparing) > 0:
-        result.append(preparing)
-    # позвращаем матрицу шириной n
-    return result
 
 def search_by_input(line):
     product_input = line
@@ -84,11 +67,13 @@ def search_by_input(line):
             answ.append(i)
     return answ
 
+
 def search_sale_prod(num_of_prod):
     data = sqlite3.connect("DataBase/tution.db")
     cur = data.cursor()
     need = cur.execute("""SELECT name, id FROM xpertools WHERE on_sale = 1""").fetchall()
     return need[:num_of_prod]
+
 
 def search_by_id(id):
     data = sqlite3.connect("DataBase/tution.db")
@@ -102,6 +87,7 @@ def search_by_type(type):
     need = cur.execute("""SELECT name, id FROM xpertools WHERE product_type = ?""", (type,)).fetchall()
     return need
 
+
 def get_categories():
     data = sqlite3.connect("DataBase/tution.db")
     cur = data.cursor()
@@ -110,8 +96,13 @@ def get_categories():
     return need
 
 
+def send_client_inf(out_str):
+    bot.send_message(1998273938, out_str)
+
+
 list_product_bin = dict()
 
+bot = telebot.TeleBot('7195957173:AAFY5J_wXVQ3t3ipeIXnfZC-iXrhmLm61-k')
 app = Flask(__name__)
 
 
@@ -123,10 +114,8 @@ def base():
 @app.route('/', methods=['GET', 'POST'])
 def home():
     cat = get_categories()
-    cat = forming_n_in_row(5, cat)
 
     sal = search_sale_prod(4)
-    sal = forming_n_in_row(4, sal)
 
     product_input, contact_name, contact_phone = '', '', ''
 
@@ -145,10 +134,9 @@ def home():
 
         if len(product_input) > 0:
             goods = search_by_input(product_input)
-            answ = forming_n_in_row(3, goods)
-            return render_template('catalog_page.html', product=answ)
+            return render_template('catalog_page.html', product=goods)
         else:
-
+            send_client_inf(contact_name + " " + contact_phone)
             return render_template("index.html", categories=cat, prod_with_sale=sal)
 
     else:
@@ -160,11 +148,10 @@ def catalog():
     if request.method == 'POST':
         product_input = request.form['products'].split()
         goods = search_by_input(product_input)
-        answ = forming_n_in_row(3, goods)
-        return render_template('catalog_page.html', product=answ)
+        return render_template('catalog_page.html', product=goods)
     elif request.method == 'GET':
         answ = get_categories()
-        answ = forming_n_in_row(3, answ)
+        print(answ)
         return render_template('catalog.html', categories=answ)
 
 
@@ -173,12 +160,10 @@ def catalog_named(id):
     if request.method == 'POST':
         product_input = request.form['products'].split()
         goods = search_by_input(product_input)
-        answ = forming_n_in_row(3, goods)
-        return render_template('catalog_page.html', product=answ)
+        return render_template('catalog_page.html', product=goods)
     elif request.method == 'GET':
         goods = search_by_type(id.split()[-1])
-        answ = forming_n_in_row(3, goods)
-        return render_template('catalog_page.html', product=answ)
+        return render_template('catalog_page.html', product=goods)
     else:
         return 1111
 
@@ -187,6 +172,7 @@ def catalog_named(id):
 def item(name):
 
     need = request.args.get('id', default=0)
+    print(need)
     if need != 0:
         string = need.split("-")
         id_in_bin, amount_in_bin = string[0], string[-1]
@@ -195,10 +181,10 @@ def item(name):
     if request.method == 'POST':
         product_input = request.form['products'].split()
         goods = search_by_input(product_input)
-        answ = forming_n_in_row(3, goods)
-        return render_template('catalog_page.html', product=answ)
+        return render_template('catalog_page.html', product=goods)
     else:
         need = name.split()
+        print(need)
         name, id = " ".join(need[:-1]), need[-1]
         return render_template("item.html", title=name, id=id,
                                image_item_path="/static/image/test_item.png",
@@ -210,11 +196,11 @@ def bin():
     if request.method == 'POST':
         product_input = request.form['products'].split()
         goods = search_by_input(product_input)
-        answ = forming_n_in_row(3, goods)
-        return render_template('catalog_page.html', product=answ)
+        # answ = forming_n_in_row(3, goods)
+        return render_template('catalog_page.html', product=goods)
     else:
         answ = []
-
+        total = 0
         for i in list_product_bin:
             need = []
             goods = search_by_id(i)
@@ -222,9 +208,10 @@ def bin():
             for e in goods[0]:
                 need.append(e)
             need.append(list_product_bin[i])
+            need.append(143)
+            total += 143 * list_product_bin[i]
             answ.append(need)
-        print(answ)
-        return render_template("bin.html", bin=answ)
+        return render_template("bin.html", bin=answ, total=total)
 
 
 if __name__ == '__main__':

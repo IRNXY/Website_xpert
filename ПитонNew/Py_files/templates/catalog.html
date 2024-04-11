@@ -9,46 +9,14 @@
 
     <div id="catalog">
         {% set categories_name = categories %}
-        {% for product in categories_name %}
         <div id="products_matrix_n">
-        {% if product|length == 10 %}
-
-            <a href="/catalog/{{ product[0] }} {{ product[1] }}" id="product"> <div id="categories_col"> {{ product[0] }}
-            <img id="two_col" src=" {{ product[1] }} "> </div> </a>
-            <a href="/catalog/{{ product[2] }} {{ product[3] }}" id="product"><div  id="categories_col"> {{ product[2] }}
-            <img id="two_col" src=" {{ product[3] }} "> </div></a>
-            <a href="/catalog/{{ product[4] }} {{ product[5] }}" id="product"> <div id="categories_col"> {{ product[4] }}
-            <img id="two_col" src=" {{ product[5] }} "> </div> </a>
-            <a href="/catalog/{{ product[6] }} {{ product[7] }}" id="product"> <div id="categories_col"> {{ product[6] }}
-            <img id="two_col" src=" {{ product[7] }} "> </div> </a>
-            <a href="/catalog/{{ product[8] }} {{ product[9] }}" id="product"> <div id="categories_col"> {{ product[8] }}
-            <img id="two_col" src=" {{ product[9] }} "> </div> </a>
-
-            <div class="w-100"></div>
-
-        {% elif  product|length == 6 %}
-            <a href="/catalog/{{ product[0] }} {{ product[1] }}" id="product"> <div id="categories_col"> {{ product[0] }}
-            <img id="two_col" src=" {{ product[1] }} "> </div> </a>
-            <a href="/catalog/{{ product[2] }} {{ product[3] }}" id="product"><div  id="categories_col"> {{ product[2] }}
-            <img id="two_col" src=" {{ product[3] }} "> </div></a>
-            <a href="/catalog/{{ product[4] }} {{ product[5] }}" id="product"> <div id="categories_col"> {{ product[4] }}
-            <img id="two_col" src=" {{ product[5] }} "> </div> </a>
-
-            <div class="w-100"></div>
-        {% elif  product|length == 4 %}
-            <a href="/catalog/{{ product[0] }} {{ product[1] }}" id="product"> <div id="categories_col"> {{ product[0] }}
-            <img id="two_col" src=" {{ product[1] }} "> </div> </a>
-            <a href="/catalog/{{ product[2] }} {{ product[3] }}" id="product"><div  id="categories_col"> {{ product[2] }}
-            <img id="two_col" src=" {{ product[3] }} "> </div></a>
-
-            <div class="w-100"></div>
-        {% else %}
-            <a href="/item/{{ product[0] }} {{ product[1] }}" id="product"> <div id="col"> {{ product[0] }}
+        {% for product in categories_name %}
+            <a href="/catalog/{{ product[1] }}" id="product"> <div id="categories_col"> {{ product[0] }}
             <img id="two_col" src=" {{ product[1] }} "> </div> </a>
 
-        {% endif %}
+        {% endfor %}
+
         </div>
-    {% endfor %}
     </div>
 
     <div id="right_space"></div>

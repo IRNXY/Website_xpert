@@ -19,29 +19,31 @@
             <div id="final_sum_title">Итого</div>
         </div>
         {% set bin_products = bin %}
-        {% for product in bin_products %}
-            <div id="bin_row">
-                <img src="{{ product[1] }}" id="bin_pic">
-                <a href="/item/{{ product[0] }} {{ product[1] }}" id="prod_name"> {{ product[0] }}</a>
-                <p id="prod_price"> 10 000 p.</p>
-                <div id="prod_amount">
-                    <button onclick="handleClick_bin(-1, {{ product[1] }})" id="click_btn">-</button>
-                    <h5 id="counter-display{{ product[1] }}" class="num_of_prod"> {{ product[2] }}</h5>
-                    <button onclick="handleClick_bin(1, {{ product[1] }})" id="click_btn">+</button>
-                </div>
-                <p id="prod_total"> 20 000 p. </p>
-            </div>
-        {% endfor %}
+        <div id="bin_row">
+            {% for product in bin_products %}
+                    <div id="object">
+                        <img src="{{ product[1] }}" id="bin_pic">
+                        <a href="/item/{{ product[0] }} {{ product[1] }}" id="prod_name"> {{ product[0] }}</a>
+                    </div>
+                    <p id="prod_price{{product[1]}}"> {{product[3]}}p.</p>
+                    <div id="prod_amount">
+                        <button onclick="handleClick_bin(-1, {{ product[1] }})" id="click_btn">-</button>
+                        <h5 id="counter-display{{ product[1] }}" class="num_of_prod"> {{ product[2] }}</h5>
+                        <button onclick="handleClick_bin(1, {{ product[1] }})" id="click_btn">+</button>
+                    </div>
+                    <p id="prod_total{{ product[1] }}"> {{product[3] * product[2]}} p. </p>
+            {% endfor %}
+        </div>
     </div>
 
     <div id="total">
         <h5>Сумма заказов</h5>
         <div id="inf_total">
             <div id="left_box">
-                <p id="vert_center">Итого</p>
+                <p id="vert_center_1">Итого</p>
             </div>
             <div id="right_box">
-                <p id="vert_center">25 038 p.</p>
+                <p id="vert_center_2"> {{ total }} </p>
             </div>
         </div>
         <a href="" id="btn_confirm">

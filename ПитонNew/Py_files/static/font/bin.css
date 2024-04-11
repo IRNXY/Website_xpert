@@ -1,7 +1,16 @@
-#bin_row {display: flex;
-         flex-direction: row;
-         margin-top: 10px;
-         margin-bottom: 10px;}
+/*#bin_row_title {justify-items: stretch;
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr 1fr;
+              width: 100%;
+              margin-top: 10px;
+              margin-bottom: 10px;}*/
+
+#bin_row {justify-items: stretch;
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr 1fr;
+              width: 100%;
+              margin-top: 10px;
+              margin-bottom: 10px;}
 
 #name_title{width: 52%;}
 #price_title{width: 16%;}
@@ -49,7 +58,10 @@
             width: 50%;
             padding-right: 10px;
             padding: 10px;}
-#vert_center {padding: 0px;
+#vert_center_1 {padding: 0px;
+              margin: 0px;
+              font-weight: bold;}
+#vert_center_2 {padding: 0px;
               margin: 0px;
               font-weight: bold;}
 

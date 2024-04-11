@@ -3,42 +3,19 @@
 {% block title %}Начало{% endblock %}
 
 {% block content %}
+<div id="object">
+    <div id="left_space"></div>
 
-    {% set product_name = product %}
-    {% for product in product_name %}
+    <div id="catalog">
+        {% set product_name = product %}
         <div id="products_matrix_n">
-        {% if product|length == 4 %}
+            {% for product in product_name %}
+                <a href="/item/{{ product[0] }} {{ product[1] }}" id="product"> <div id="categories_col"> {{ product[0] }}
+                <img id="two_col" src=" {{ product[1] }} "> </div> </a>
 
-            <a href="/item/{{ product[0] }} {{ product[1] }} " id="product"> <div id="col"> {{ product[0] }}
-            <img id="two_col" src=" {{ product[1] }} "> </div> </a>
-            <a href="/item/{{ product[2] }} {{ product[3] }}" id="product"><div  id="col"> {{ product[2] }}
-            <img id="two_col" src=" {{ product[3] }} "> </div></a>
-            <div class="w-100"></div>
-
-        {% elif  product|length == 6 %}
-            <a href="/item/{{ product[0] }} {{ product[1] }}" id="product"> <div id="col"> {{ product[0] }}
-            <img id="two_col" src=" {{ product[1] }} "> </div> </a>
-            <a href="/item/{{ product[2] }} {{ product[3] }}" id="product"><div  id="col"> {{ product[2] }}
-            <img id="two_col" src=" {{ product[3] }} "> </div></a>
-            <a href="/item/{{ product[4] }} {{ product[5] }}" id="product"><div  id="col"> {{ product[4] }}
-            <img id="two_col" src=" {{ product[5] }} "> </div></a>
-            <div class="w-100"></div>
-
-        {% elif  product|length == 8 %}
-            <a href="/item/{{ product[0] }} {{ product[1] }}" id="product"> <div id="col"> {{ product[0] }}
-            <img id="two_col" src=" {{ product[1] }} "> </div> </a>
-            <a href="/item/{{ product[2] }} {{ product[3] }}" id="product"><div  id="col"> {{ product[2] }}
-            <img id="two_col" src=" {{ product[3] }} "> </div></a>
-            <a href="/item/{{ product[4] }} {{ product[5] }}" id="product"><div  id="col"> {{ product[4] }}
-            <img id="two_col" src=" {{ product[5] }} "> </div></a>
-            <a href="/item/{{ product[6] }} {{ product[7] }}" id="product"><div  id="col"> {{ product[6] }}
-            <img id="two_col" src=" {{ product[7] }} "> </div></a>
-            <div class="w-100"></div>
-        {% else %}
-            <a href="/item/{{ product[0] }} {{ product[1] }}" id="product"> <div id="col"> {{ product[0] }}
-            <img id="two_col" src=" {{ product[1] }} "> </div> </a>
-        {% endif %}
+            {% endfor %}
         </div>
-    {% endfor %}
-
+    </div>
+    <div id="right_space"></div>
+</div>
 {% endblock %}

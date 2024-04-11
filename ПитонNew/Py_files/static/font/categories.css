@@ -2,8 +2,7 @@
           align-items: center;}
 #categories_col {background-color: #F6F6F6;
                  border: 1px solid black;
-                 width: 200px;
-                 height: 100px;}
+                 height: 100%;}
 #categories_col:hover {box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
                         background-color: white;
                         transform: translateY(-2px);}
