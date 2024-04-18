@@ -22,13 +22,14 @@
         <div id="bin_row">
             {% for product in bin_products %}
                     <div id="object">
+                        <button id="del_item" onclick="del_items( {{ product[1] }} )"><img src="/static/image/krest.jpg" height="100%"> </button>
                         <img src="{{ product[1] }}" id="bin_pic">
                         <a href="/item/{{ product[0] }} {{ product[1] }}" id="prod_name"> {{ product[0] }}</a>
                     </div>
-                    <p id="prod_price{{product[1]}}"> {{product[3]}}p.</p>
+                    <p id="prod_price{{product[1]}}" class="center"> {{product[2]}}p.</p>
                     <div id="prod_amount">
                         <button onclick="handleClick_bin(-1, {{ product[1] }})" id="click_btn">-</button>
-                        <h5 id="counter-display{{ product[1] }}" class="num_of_prod"> {{ product[2] }}</h5>
+                        <h5 id="counter-display{{ product[1] }}" class="num_of_prod"> {{ product[3] }}</h5>
                         <button onclick="handleClick_bin(1, {{ product[1] }})" id="click_btn">+</button>
                     </div>
                     <p id="prod_total{{ product[1] }}"> {{product[3] * product[2]}} p. </p>
@@ -46,12 +47,25 @@
                 <p id="vert_center_2"> {{ total }} </p>
             </div>
         </div>
-        <a href="" id="btn_confirm">
+        <a href="#gray_screen" id="btn_confirm">
             <div id="btn_conf">Оформить заказ</div>
         </a>
     </div>
 
     <div id="right_space_20"></div>
 </div>
-
+<div id="gray_screen">
+    <div id="inf_window">
+        <a href="/bin" id="close_btn"><img src="/static/image/krest.jpg" height="16px" id="btn_pos"> </a>
+        <div id="service">
+            <p id="text">Ваш заказ оформлен!</p>
+            <p>Введите имя и номер телефона чтобы наш менеджер мог с вами связаться</p>
+            <form method="post">
+                <input type="text" id="name" name="name" placeholder="Имя" required>
+                <input type="tel" id="phone" name="phone" placeholder="Телефон" required>
+                <button type="submit" name="contact_btn" value="Отправить" class="btn btn-primary" id="send_form" onclick="">Отправить</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

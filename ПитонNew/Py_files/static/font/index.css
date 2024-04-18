@@ -1,12 +1,17 @@
 #name {width: 100%;
       margin-top: 10px;
       margin-bottom: 10px;
-      height: 42px;}
+      height: 42px;
+      border-radius: 10px;
+      border: 2px solid black;}
 #phone {width: 100%;
         margin-top: 10px;
         margin-bottom: 10px;
-        height: 42px;}
+        height: 42px;
+        border-radius: 10px;
+        border: 2px solid black;}
 #send_form {width: 100%;
         margin-top: 10px;
         margin-bottom: 10px;
-        height: 42px;}
+        height: 42px;
+        border-radius: 10px;}

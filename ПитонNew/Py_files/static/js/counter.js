@@ -8,6 +8,7 @@ function handleClick_item(arg) {
 }
 
 function handleClick_bin(arg, id) {
+
     count = Number(document.getElementById("counter-display" + id).textContent);
     total = Number(document.getElementById("vert_center_2").textContent);
 
@@ -16,11 +17,18 @@ function handleClick_bin(arg, id) {
     if ( count + arg >= 1){
         count += arg;
         document.getElementById("counter-display" + id).innerHTML = count;
-        document.getElementById("prod_total" + id).innerHTML = count * price + "p.";
+        document.getElementById("prod_total" + id).innerHTML = (count * price).toFixed(2) + "p.";
         if (arg > 0){
-            document.getElementById("vert_center_2").innerHTML = total + price ;
+            document.getElementById("vert_center_2").innerHTML = (total + price).toFixed(2) ;
         }else{
-            document.getElementById("vert_center_2").innerHTML = total - price ;
+            document.getElementById("vert_center_2").innerHTML = (total - price).toFixed(2) ;
         }
     }
+
+    let need = document.getElementsByClassName('num_of_prod');
+    console.log(need);
+    for (var i in need){
+        console.log(need[i].id, need[i].innerText);
+    }
 }
+

@@ -78,7 +78,7 @@ def search_sale_prod(num_of_prod):
 def search_by_id(id):
     data = sqlite3.connect("DataBase/tution.db")
     cur = data.cursor()
-    need = cur.execute("""SELECT name, id FROM xpertools WHERE id = ?""", (id,)).fetchall()
+    need = cur.execute("""SELECT name, id, price FROM xpertools WHERE id = ?""", (id,)).fetchall()
     return need
 
 def search_by_type(type):
@@ -104,7 +104,6 @@ list_product_bin = dict()
 
 bot = telebot.TeleBot('7195957173:AAFY5J_wXVQ3t3ipeIXnfZC-iXrhmLm61-k')
 app = Flask(__name__)
-
 
 @app.route('/base',)
 def base():
@@ -151,7 +150,6 @@ def catalog():
         return render_template('catalog_page.html', product=goods)
     elif request.method == 'GET':
         answ = get_categories()
-        print(answ)
         return render_template('catalog.html', categories=answ)
 
 
@@ -172,7 +170,6 @@ def catalog_named(id):
 def item(name):
 
     need = request.args.get('id', default=0)
-    print(need)
     if need != 0:
         string = need.split("-")
         id_in_bin, amount_in_bin = string[0], string[-1]
@@ -184,7 +181,6 @@ def item(name):
         return render_template('catalog_page.html', product=goods)
     else:
         need = name.split()
-        print(need)
         name, id = " ".join(need[:-1]), need[-1]
         return render_template("item.html", title=name, id=id,
                                image_item_path="/static/image/test_item.png",
@@ -193,24 +189,70 @@ def item(name):
 
 @app.route('/bin', methods=['GET', 'POST'])
 def bin():
+
+    product_input, contact_name, contact_phone, data = '', '', '', ''
+
     if request.method == 'POST':
-        product_input = request.form['products'].split()
-        goods = search_by_input(product_input)
-        # answ = forming_n_in_row(3, goods)
-        return render_template('catalog_page.html', product=goods)
+
+        try:
+            data = request.get_json()
+        except Exception:
+            pass
+
+        if data:
+
+            try:
+                del list_product_bin[data["id"]]
+            except Exception:
+                pass
+
+            answ = []
+            total = 0
+            for i in list_product_bin:
+                need = []
+                goods = search_by_id(i)
+                current_price = goods[0][-1]
+                for e in goods[0]:
+                    need.append(e)
+                need.append(list_product_bin[i])
+                total += current_price * list_product_bin[i]
+                answ.append(need)
+
+
+            return render_template("bin.html", bin=answ, total=total)
+
+        try:
+            product_input = request.form['products'].split()
+        except Exception:
+            pass
+
+        try:
+            contact_name = request.form['name']
+            contact_phone = request.form['phone']
+        except Exception:
+            pass
+
+        if len(contact_name) == 0:
+            goods = search_by_input(product_input)
+            return render_template('catalog_page.html', product=goods)
+        else:
+            send_client_inf(contact_name + " " + contact_phone)
+            cat = get_categories()
+            sal = search_sale_prod(4)
+            return render_template("index.html", categories=cat, prod_with_sale=sal)
     else:
         answ = []
         total = 0
         for i in list_product_bin:
             need = []
             goods = search_by_id(i)
-
+            current_price = goods[0][-1]
             for e in goods[0]:
                 need.append(e)
             need.append(list_product_bin[i])
-            need.append(143)
-            total += 143 * list_product_bin[i]
+            total += current_price * list_product_bin[i]
             answ.append(need)
+
         return render_template("bin.html", bin=answ, total=total)
 
 
