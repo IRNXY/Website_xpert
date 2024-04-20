@@ -81,6 +81,7 @@ def search_by_id(id):
     need = cur.execute("""SELECT name, id, price FROM xpertools WHERE id = ?""", (id,)).fetchall()
     return need
 
+
 def search_by_type(type):
     data = sqlite3.connect("DataBase/tution.db")
     cur = data.cursor()
@@ -94,6 +95,36 @@ def get_categories():
 
     need = cur.execute("""SELECT type, id FROM xpertools_type""").fetchall()
     return need
+
+
+def form_bin_layout():
+    answ = []
+    total = 0
+    for i in list_product_bin:
+        need = []
+        goods = search_by_id(i)
+        current_price = goods[0][-1]
+        for e in goods[0]:
+            need.append(e)
+        need.append(list_product_bin[i])
+        total += current_price * list_product_bin[i]
+        answ.append(need)
+    return [answ, total]
+
+def order_to_manager(goods_list):
+    data = sqlite3.connect("DataBase/tution.db")
+    cur = data.cursor()
+
+    text_to_manager = 'Клиент заказал:'
+
+    for i in enumerate(goods_list.keys()):
+        if "display" in i[1]:
+            id = i[1].split("display")[-1]
+            need = cur.execute("""SELECT name FROM xpertools WHERE id = ?""", (id,)).fetchall()
+            text_to_manager += "\n" + str(i[0] + 1) + ") " + need[0][0] + ", артикул = " + str(id) +\
+                               ", в количестве " + str(goods_list[i[1]])
+
+    return text_to_manager
 
 
 def send_client_inf(out_str):
@@ -189,70 +220,39 @@ def item(name):
 
 @app.route('/bin', methods=['GET', 'POST'])
 def bin():
-
-    product_input, contact_name, contact_phone, data = '', '', '', ''
-
     if request.method == 'POST':
 
         try:
             data = request.get_json()
         except Exception:
-            pass
+            data = dict()
 
-        if data:
+        try:
+            product_input = request.form['products'].split()
+        except Exception:
+            product_input = ''
 
+        if "id" in data.keys():
             try:
                 del list_product_bin[data["id"]]
             except Exception:
                 pass
 
-            answ = []
-            total = 0
-            for i in list_product_bin:
-                need = []
-                goods = search_by_id(i)
-                current_price = goods[0][-1]
-                for e in goods[0]:
-                    need.append(e)
-                need.append(list_product_bin[i])
-                total += current_price * list_product_bin[i]
-                answ.append(need)
-
+            answ, total = form_bin_layout()
 
             return render_template("bin.html", bin=answ, total=total)
 
-        try:
-            product_input = request.form['products'].split()
-        except Exception:
-            pass
-
-        try:
-            contact_name = request.form['name']
-            contact_phone = request.form['phone']
-        except Exception:
-            pass
-
-        if len(contact_name) == 0:
+        elif product_input and not(data):
             goods = search_by_input(product_input)
             return render_template('catalog_page.html', product=goods)
         else:
-            send_client_inf(contact_name + " " + contact_phone)
+            text = order_to_manager(data)
+            send_client_inf(data["name"] + " " + data["phone"] + "\n" + text)
             cat = get_categories()
             sal = search_sale_prod(4)
             return render_template("index.html", categories=cat, prod_with_sale=sal)
     else:
-        answ = []
-        total = 0
-        for i in list_product_bin:
-            need = []
-            goods = search_by_id(i)
-            current_price = goods[0][-1]
-            for e in goods[0]:
-                need.append(e)
-            need.append(list_product_bin[i])
-            total += current_price * list_product_bin[i]
-            answ.append(need)
-
+        answ, total = form_bin_layout()
         return render_template("bin.html", bin=answ, total=total)
 
 

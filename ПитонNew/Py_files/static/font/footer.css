@@ -6,7 +6,9 @@
          display: flex;
          flex-direction: row;
          margin-bottom: 0px;
-         margin-right: 0px;}
+         margin-right: 0px;
+         position: absolute;
+         bottom: 0px;}
 #upper_part_3col {display: flex;
                   flex-direction: row;
                   padding: 10px;

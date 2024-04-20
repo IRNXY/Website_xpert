@@ -1,6 +1,12 @@
+html {
+  height: 100%;
+}
+
 body {margin: 0px;
       padding-right: 0px;
-      width: 100%;}
+      width: 100%;
+      position: relative;
+      min-height: 100%;}
 
 #sale_announcement{background-color: red;}
 
@@ -17,10 +23,3 @@ body {margin: 0px;
 
 #left_space_40 {width: 40%;}
 #right_space_40 {width: 40%;}
-
-
-
-
-
-
-

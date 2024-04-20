@@ -16,6 +16,7 @@
     <script src="/static/js/timer.js"></script>
     <script src="/static/js/url.js"></script>
     <script src="/static/js/json_transport.js"></script>
+    <script src="/static/js/bin_front.js"></script>
 </head>
 <body>
 
@@ -76,13 +77,14 @@
     <div id="right_space"></div>
 </div>
 
+<main>
 <!-- контент дочерних шаблонов -->
     {% block content %}
     {% endblock %}
-
+</main>
 <!-- footer -->
 
-<div id="footer">
+<footer id="footer">
     <div id="left_space"></div>
     <div id="center">
         <div id="upper_part_3col">
@@ -116,7 +118,7 @@
         </div>
     </div>
     <div id="right_space"></div>
-</div>
+</footer>
 
 </body>
 </html>

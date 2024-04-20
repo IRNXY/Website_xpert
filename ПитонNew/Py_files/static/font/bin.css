@@ -38,7 +38,8 @@
               border-top: 1px solid grey;
               margin: 4px;
               width: 30px;
-              text-align: center;}
+              text-align: center;
+              padding-top: 10px;}
 #click_btn {text-align: center;
             width: 30px;
             background-color: white;
@@ -71,6 +72,7 @@
               font-weight: bold;}
 #btn_conf {background-color: yellow;
            padding: 10px;}
+#label_empty {display: none;}
 
 #gray_screen {
         background: rgba(102, 102, 102, 0.5);
@@ -102,3 +104,6 @@
 #service{text-align: center;}
 
 #text{font-size: 24px;}
+
+#name_error {display: none;}
+#phone_error {display: none;}

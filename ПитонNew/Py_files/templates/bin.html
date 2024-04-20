@@ -47,24 +47,26 @@
                 <p id="vert_center_2"> {{ total }} </p>
             </div>
         </div>
-        <a href="#gray_screen" id="btn_confirm">
+        <a id="btn_confirm" onclick="show_form()">
             <div id="btn_conf">Оформить заказ</div>
         </a>
+        <p id="label_empty">Корзина пуста</p>
     </div>
 
     <div id="right_space_20"></div>
 </div>
 <div id="gray_screen">
     <div id="inf_window">
-        <a href="/bin" id="close_btn"><img src="/static/image/krest.jpg" height="16px" id="btn_pos"> </a>
+        <a onclick="hide_form()" id="close_btn"><img src="/static/image/krest.jpg" height="16px" id="btn_pos"> </a>
         <div id="service">
-            <p id="text">Ваш заказ оформлен!</p>
-            <p>Введите имя и номер телефона чтобы наш менеджер мог с вами связаться</p>
-            <form method="post">
+            <p id="text">Ваш заказ почти оформлен!</p>
+            <p>Отсалось ввести имя и номер телефона, чтобы наш менеджер мог с вами связаться</p>
                 <input type="text" id="name" name="name" placeholder="Имя" required>
-                <input type="tel" id="phone" name="phone" placeholder="Телефон" required>
-                <button type="submit" name="contact_btn" value="Отправить" class="btn btn-primary" id="send_form" onclick="">Отправить</button>
-            </form>
+                <p id="name_error"> Неправильный формат имени</p>
+                <input type="text" id="phone" name="phone" placeholder="Телефон" required>
+                <p id="phone_error"> Неправильный формат телефон (например: 81234567890)</p>
+                <button name="contact_btn" value="Отправить" class="btn btn-primary" id="send_form" onclick="send_order()">Отправить</button>
+            <button onclick="send_order()">test</button>
         </div>
     </div>
 </div>

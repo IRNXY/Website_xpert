@@ -24,11 +24,5 @@ function handleClick_bin(arg, id) {
             document.getElementById("vert_center_2").innerHTML = (total - price).toFixed(2) ;
         }
     }
-
-    let need = document.getElementsByClassName('num_of_prod');
-    console.log(need);
-    for (var i in need){
-        console.log(need[i].id, need[i].innerText);
-    }
 }
 
