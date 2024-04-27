@@ -12,36 +12,99 @@
 #pic {width: 100%;}
 #item_sale {width:33%;}
 #main_inf {width: 33%;
-           box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
-           border: 1px solid grey;}
+           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+           margin: 20px;
+           margin-top: 0px;
+           border-radius: 10px;}
 #amount{width:50%;
-        }
-#bin_item{width: 50%;}
-#buy_btn{width:100%;}
+        display: flex;
+        flex-direction: row;
+        border-top: 1px solid grey;
+        height: 50px;
+        background-color: #F9F9F9;}
+#btn_counter {border: none;
+              background-color: #F9F9F9;}
+#btn_margin {margin: 15px;
+             margin-top: 10px;
+             width: 33%;
+             text-align: center;}
+#counter-display {width: 33%;
+                  text-align:center;
+                  margin-top: 10px;}
+
+#bin_item{width: 50%;
+          background-color: #FEBD00;
+          text-align: center;
+          padding-top: 10px;
+          font-weight: bold;}
+
+
+#buy_btn{width:100%;
+        display: block;
+        background-color: #EA3E00;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 15px;}
 
 #timer {display: flex;
-        flex-direction: row;}
+        flex-direction: row;
+        padding: 10px;}
 #days {margin-left: 0px;
        margin-right: 10px;
        text-align: center;
-       border: 1px solid grey;
+       border: 2px solid grey;
        width: 25%;}
+#days_num {margin-top: 10px;
+           margin-bottom: 0px;
+           font-weight: bold;
+           font-size: 17px;}
+#days_str {margin-bottom: 0px;}
+
 #hours {margin-left: 10px;
        margin-right: 10px;
        text-align: center;
-       border: 1px solid grey;
+       border: 2px solid grey;
        width: 25%;}
+#hours_num {margin-top: 10px;
+           margin-bottom: 0px;
+           font-weight: bold;
+           font-size: 17px;}
+#hours_str {margin-bottom: 0px;}
+
 #minutes {margin-left: 10px;
        margin-right: 10px;
        text-align: center;
-       border: 1px solid grey;
+       border: 2px solid grey;
        width: 25%;}
+#minutes_num {margin-top: 10px;
+           margin-bottom: 0px;
+           font-weight: bold;
+           font-size: 17px;}
+#minutes_str {margin-bottom: 0px;}
+
 #seconds {margin-left: 10px;
        margin-right: 0px;
        text-align: center;
-       border: 1px solid grey;
+       border: 2px solid grey;
        width: 25%;}
+#seconds_num {margin-top: 10px;
+           margin-bottom: 0px;
+           font-weight: bold;
+           font-size: 17px;}
+#seconds_str {margin-bottom: 0px;}
 
 
+#row_with_red {margin-left: 10px;
+            margin-top: 10px;
+            margin-bottom: 5px;}
+#row_with_red>span {color: red;}
 
+#margin {margin-left: 10px;
+         margin-bottom: 5px;}
 
+#price_item {margin: 10px;
+            font-size: 30px;
+            font-weight: bold;}
+#useless_pr {color: grey}

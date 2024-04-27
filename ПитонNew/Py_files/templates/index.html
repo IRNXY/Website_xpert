@@ -10,29 +10,33 @@
     </div>
     <div id="right_space"></div>
 </div>
+<br>
 <div id="w">
     <h1>Категории товаров</h1>
 </div>
 <div id="left_space"></div>
-
+<br>
 <div id="object">
     <div id="left_space"></div>
 
     <div id="catalog">
         {% set categories_name = categories %}
-        <div id="products_matrix_n">
+        <div id="categories_matrix_n">
             {% for product in categories_name %}
-                <a href="/catalog/{{ product[0] }} {{ product[1] }}" id="product"> <div id="categories_col"> {{ product[0] }}
-                <img id="two_col" src=" {{ product[1] }} "> </div> </a>
+                <a href="/catalog/{{ product[0] }} {{ product[1] }}" id="categ">
+                    <div id="categories_col"> <img id="categ_img" src="/static/image/test_item.png"> <br> {{ product[0] }}</div>
+                </a>
             {% endfor %}
         </div>
     </div>
 
     <div id="right_space"></div>
 </div>
+<br>
 <div id="w">
     <h1>Акция на товары</h1>
 </div>
+<br>
 <div id="object">
     <div id="left_space"></div>
 
@@ -40,14 +44,25 @@
         {% set sale_products = prod_with_sale %}
         <div id="products_matrix_n">
             {% for product in sale_products %}
-                <a href="/item/{{ product[0] }} {{ product[1] }}" id="product"> <div id="categories_col"> {{ product[0] }}
-                <img id="two_col" src=" {{ product[1] }} "> </div> </a>
+                <a href="/item/{{ product[0] }} {{ product[1] }}" id="item">
+                    <div id="item_space">
+                        <img id="item_img" src=" /static/image/test_item.png ">
+                        <p id="avalible"> В наличии </p>
+                        {{ product[0] }}
+                        <div id="sale_label">
+                            Скидка!
+                        </div>
+                        <div id="bold">
+                            <s>{{ product[2] }} p.</s> {{ product[3] }} p.
+                        </div>
+                    </div>
+                </a>
             {% endfor %}
         </div>
     </div>
     <div id="right_space"></div>
 </div>
-
+<br>
 <div id="object">
     <div id="left_space_40"></div>
 

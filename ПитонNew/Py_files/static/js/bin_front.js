@@ -18,9 +18,13 @@ function footer() {
     const
         main = document.getElementsByTagName('main')[0],
         footer = document.getElementsByTagName('footer')[0]
-
+    console.log(main)
     main.style.paddingBottom = footer.clientHeight + 'px';
 }
 
 window.addEventListener('load', footer);
 window.addEventListener('resize', footer);
+
+let need = document.getElementById('object');
+
+// console.log(need[0]);

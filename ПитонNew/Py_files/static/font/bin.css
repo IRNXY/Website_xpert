@@ -1,31 +1,35 @@
 #bin_row {justify-items: stretch;
               display: grid;
-              grid-template-columns: 1fr 1fr 1fr 1fr;
+              grid-template-columns: 52% 14% 18% 16%;
               width: 100%;
               margin-top: 10px;
               margin-bottom: 10px;}
 
-#name_title{width: 52%;}
-#price_title{width: 16%;}
-#amount_title{width: 16%;
+#name_title{}
+#price_title{font-size: 18px;
+            font-weight: bold;}
+#amount_title{font-size: 18px;
+              font-weight: bold;
               padding-left: 2%;}
-#final_sum_title{width: 16%;}
+#final_sum_title{font-size: 18px;
+                 font-weight: bold;}
 
-#del_item { margin: 10px;
-            padding: 1px;
+
+#del_item { margin-right: 10px;
+            padding: 0px;
             height: 19px;
             width: 19px;
             border: none;
             background: white;}
-#prod_name {width: 100%;
-            text-decoration: none;
+.center_num {font-size: 17px;
+            margin-top: 10px;}
+#prod_name {text-decoration: none;
             color: black;
-            font-size: 16px;}
-#prod_price {width: 100%;}
-#prod_total {width: 100%;}
-#prod_amount {width: 100%;
+            font-size: 17px;}
+#prod_amount {font-size: 18px;
               display: flex;
               flex-direction: row;}
+
 
 #bin_list {width: 80%;}
 #total {width: 20%;
@@ -39,7 +43,7 @@
               margin: 4px;
               width: 30px;
               text-align: center;
-              padding-top: 10px;}
+              padding-top: 8px;}
 #click_btn {text-align: center;
             width: 30px;
             background-color: white;
@@ -49,7 +53,9 @@
 #inf_total {display: flex;
             flex-direction: row;
             background-color: #EDEDED;
-            margin-bottom: 20px;}
+            margin-bottom: 20px;
+            height: 60px;
+            padding-top: 7px;}
 #left_box {text-align: left;
            width: 50%;
            padding-left: 10px;
@@ -60,7 +66,8 @@
             padding: 10px;}
 #vert_center_1 {padding: 0px;
               margin: 0px;
-              font-weight: bold;}
+              font-weight: bold;
+              font-size: 18px;}
 #vert_center_2 {padding: 0px;
               margin: 0px;
               font-weight: bold;}
@@ -70,15 +77,24 @@
               text-align: center;
               width: 100%;
               font-weight: bold;}
+#btn_confirm:hover {cursor: pointer;}
 #btn_conf {background-color: yellow;
-           padding: 10px;}
-#label_empty {display: none;}
+           padding: 14px;
+           height: 60px;
+           font-size: 20px;}
+#label_empty {display: none;
+              margin-top: 10px;
+              text-align: center;
+              font-size: 24px;
+              padding-top: 10px;
+              color: red;
+              font-weight: bold;}
 
 #gray_screen {
         background: rgba(102, 102, 102, 0.5);
         width: 100%;
         height: 100%;
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         display: none;
@@ -87,6 +103,7 @@
 
 #close_btn {width: 100%;
             display: block;}
+#close_btn:hover {cursor: pointer;}
 #btn_pos {right: 10px;
           position: absolute;}
 
@@ -96,7 +113,7 @@
         color: black;
         font-size: 16px;
         font-weight: bold;
-        background: #FF9C17;
+        background: #FEBD00;
         position: absolute;
         left: 37%;
         top: 35%;

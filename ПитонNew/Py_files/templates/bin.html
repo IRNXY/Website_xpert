@@ -6,6 +6,7 @@
 
 <div id="w">
     <h1>Корзина</h1>
+    <br>
 </div>
 
 <div id="object">
@@ -26,19 +27,20 @@
                         <img src="{{ product[1] }}" id="bin_pic">
                         <a href="/item/{{ product[0] }} {{ product[1] }}" id="prod_name"> {{ product[0] }}</a>
                     </div>
-                    <p id="prod_price{{product[1]}}" class="center"> {{product[2]}}p.</p>
+                    <p id="prod_price{{product[1]}}" class="center_num"> {{product[2]}}p.</p>
                     <div id="prod_amount">
                         <button onclick="handleClick_bin(-1, {{ product[1] }})" id="click_btn">-</button>
                         <h5 id="counter-display{{ product[1] }}" class="num_of_prod"> {{ product[3] }}</h5>
                         <button onclick="handleClick_bin(1, {{ product[1] }})" id="click_btn">+</button>
                     </div>
-                    <p id="prod_total{{ product[1] }}"> {{product[3] * product[2]}} p. </p>
+                    <p id="prod_total{{ product[1] }}" class="center_num"> {{product[2] * product[3]}} p. </p>
             {% endfor %}
         </div>
     </div>
 
     <div id="total">
         <h5>Сумма заказов</h5>
+        <br>
         <div id="inf_total">
             <div id="left_box">
                 <p id="vert_center_1">Итого</p>
@@ -50,7 +52,9 @@
         <a id="btn_confirm" onclick="show_form()">
             <div id="btn_conf">Оформить заказ</div>
         </a>
-        <p id="label_empty">Корзина пуста</p>
+        <div id="label_empty">
+            <p>Корзина пуста</p>
+        </div>
     </div>
 
     <div id="right_space_20"></div>
@@ -66,7 +70,6 @@
                 <input type="text" id="phone" name="phone" placeholder="Телефон" required>
                 <p id="phone_error"> Неправильный формат телефон (например: 81234567890)</p>
                 <button name="contact_btn" value="Отправить" class="btn btn-primary" id="send_form" onclick="send_order()">Отправить</button>
-            <button onclick="send_order()">test</button>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@
 <div id="object">
     <div id="left_space"></div>
     <div id="content">
-        <div id="product_title"> {{ title }}</div>
+        <div id="product_title"> {{ product[0] }}</div>
         <div id="main_item_body">
             <div id="main_pic">
                 <img id="pic" src=" {{ image_item_path }}">
@@ -37,27 +37,52 @@
 
             </div>
             <div id="main_inf">
-                <p>Гарантия 1 год!</p>
-                <p> Бесплатное обслуживание 1 раз в год! (для всей бензотехники)</p>
-                <p> Нашли дешевле сделаем скидку 20% от разницы!</p>
-                <p> Бесплатная доставка по городу!</p>
-                <p> Для консультации свяжитесь с нашим менеджером 8 (383) 209-24-24</p>
-                <p> 48 290 р. </p>
-                <p> Рассрочка 0% (проценты платит магазин)</p>
-                <p> 4024 ₽ x 12 мес </p>
+                <p id="row_with_red">Гарантия <span> 1 год</span>! </p>
+                <p id="row_with_red"> Бесплатное обслуживание 1 раз в год! (<span>для всей бензотехники</span>)</p>
+                <p id="margin"> Нашли дешевле сделаем скидку 20% от разницы!</p>
+                <b id="margin"> Бесплатная доставка по городу!</b>
+                <p id="row_with_red"> Для консультации свяжитесь с нашим менеджером <span>8 (383) 209-24-24</span></p>
+                {% if product[4] == 0 %}
+                    <div id="price_item">
+                     {{ product[2] }} p.
+                    </div>
+                {% else %}
+                    <div id="price_item">
+                        <s id="useless_pr">{{ product[2] }} p. </s> &nbsp; {{ product[3] }} p.
+                    </div>
+                {% endif %}
 
                 <div id="object">
                     <div id="amount">
+                        <div id="btn_margin">
+                            <button id="btn_counter" onclick="handleClick_item(-1)">-</button>
+                        </div>
                         <h5 id="counter-display">1</h5>
-                        <button onclick="handleClick_item(-1)">-</button>
-                        <button onclick="handleClick_item(1)">+</button>
+                        <div id="btn_margin">
+                            <button id="btn_counter" onclick="handleClick_item(1)">+</button>
+                        </div>
                     </div>
-                    <a id="bin_item" onclick="addOrUpdateUrlParam('id', {{ id }})">В Корзину</a>
+                    <a id="bin_item" onclick="addOrUpdateUrlParam('id', {{ product[1] }})">В Корзину</a>
                 </div>
-                <a href="" id="buy_btn">Купить в 1 клик</a>
+                <a onclick="show_quick_form()" id="buy_btn">Купить в 1 клик</a>
             </div>
         </div>
     </div>
     <div id="right_space"></div>
+</div>
+
+<div id="gray_screen">
+    <div id="inf_window">
+        <a onclick="hide_form()" id="close_btn"><img src="/static/image/krest.jpg" height="16px" id="btn_pos"> </a>
+        <div id="service">
+            <p id="text">Купить в один клик!</p>
+            <p style="color: red; font-size: 18px;"> {{ product[0] }}</p>
+                <input type="text" id="name" name="name" placeholder="Имя" required>
+                <p id="name_error"> Неправильный формат имени</p>
+                <input type="text" id="phone" name="phone" placeholder="Телефон" required>
+                <p id="phone_error"> Неправильный формат телефон (например: 81234567890)</p>
+                <button name="contact_btn" value="Отправить" class="btn btn-primary" id="send_form" onclick="fast_order({{ product[1] }})">Отправить</button>
+        </div>
+    </div>
 </div>
 {% endblock %}

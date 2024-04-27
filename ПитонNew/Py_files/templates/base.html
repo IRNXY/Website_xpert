@@ -17,10 +17,11 @@
     <script src="/static/js/url.js"></script>
     <script src="/static/js/json_transport.js"></script>
     <script src="/static/js/bin_front.js"></script>
+    <script src="/static/js/item_front.js"></script>
 </head>
 <body>
 
-<div id="sale_announcement"> Kakoyto text</div>
+<!--<div id="sale_announcement"> Kakoyto text</div>-->
 
 <div id="header">
     <div id="left_space"></div>
@@ -34,18 +35,33 @@
                 </div>
             </a>
             <div id="type">
-                <p id="type_store">Фирменный оптово-розничный магазин</p>
-                <p>Официальный дилер в г. Новосибирск</p>
-                <p id="type_store">Ежедневно с 09:00-20:00</p>
+                <p id="type_store_inf">Фирменный оптово-розничный магазин</p>
+                <p id="type_store_loc">Официальный дилер в г. Новосибирск</p>
+                <p id="type_store_hour">Ежедневно с 09:00-20:00</p>
             </div>
             <div id="streets">
-                <p>П.берег: ул. Ипподромская 54</p>
-                <p>Л.берег: ул. Новогодняя 24 (ПН-ПТ, 9:00-19:00)</p>
-                <p>Первомайский район: ул. Ольги Берггольц 24</p>
+                <div id="streets_rows">
+                    <img id="loc_tag" src="/static/image/location_tag.png">
+                    <p id="margin0">П.берег: ул. Ипподромская 54</p>
+                </div>
+                <div id="streets_rows">
+                    <img id="loc_tag" src="/static/image/location_tag.png">
+                    <p id="margin0">Л.берег: ул. Новогодняя 24 (ПН-ПТ, 9:00-19:00)</p>
+                </div>
+                <div id="streets_rows">
+                    <img id="loc_tag" src="/static/image/location_tag.png">
+                    <p id="margin0">Первомайский район: ул. Ольги Берггольц 24</p>
+                </div>
             </div>
             <div id="contact">
-                <p id="type_store">8 (383) 209-24-24</p>
-                <p>sferarub@mail.ru</p>
+                <div id="contact_rows">
+                    <img id="contact_tag" src="/static/image/phone.png">
+                    <p id="type_store"> <a href="tel:83832092424" style="color: #FFC13B">8 (383) 209-24-24</a></p>
+                </div>
+                <div id="contact_rows">
+                    <img id="contact_tag" src="/static/image/mail.png">
+                    <p><a href="mailto:sferarub@mail.ru" style="color: #FFC13B">sferarub@mail.ru</a></p>
+                </div>
             </div>
             <div id="bin">
                 <a href="/bin">
@@ -58,12 +74,13 @@
         </div>
         <div id="btn_row">
             <a href="/catalog" id="btn_header_a"><div id="btn_header_div"> Каталог </div></a>
-            <a href="/" id="btn_header_a"><div id="btn_header_div"> Акции </div></a>
-            <a href="/" id="btn_header_a"><div id="btn_header_div"> Доставка и Оплата </div></a>
-            <a href="/" id="btn_header_a"><div id="btn_header_div"> Юридическим лицам</div></a>
-            <a href="/" id="btn_header_a"><div id="btn_header_div"> Сертифиакты </div></a>
-            <a href="/" id="btn_header_a"><div id="btn_header_div"> Контакты </div></a>
+            <a href="/promo" id="btn_header_a"><div id="btn_header_div"> Акции </div></a>
+            <a href="/delivery" id="btn_header_a"><div id="btn_header_div"> Доставка и Оплата </div></a>
+            <a href="/ur_pers" id="btn_header_a"><div id="btn_header_div"> Юридическим лицам</div></a>
+            <a href="/certificate" id="btn_header_a"><div id="btn_header_div"> Сертифиакты </div></a>
+            <a href="/contacts" id="btn_header_a"><div id="btn_header_div"> Контакты </div></a>
         </div>
+        <br>
         <div>
             <form method="post">
                 <input type="text" id="products_input" name="products" required>
@@ -76,7 +93,7 @@
 
     <div id="right_space"></div>
 </div>
-
+<br>
 <main>
 <!-- контент дочерних шаблонов -->
     {% block content %}

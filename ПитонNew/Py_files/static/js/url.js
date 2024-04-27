@@ -1,5 +1,6 @@
 
 function addOrUpdateUrlParam(name, value){
+    console.log(value);
     var href = window.location.href;
     var regex = new RegExp("[&\\?]" + name + "=");
     if(!regex.test(href)){

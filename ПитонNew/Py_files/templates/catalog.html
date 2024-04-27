@@ -9,11 +9,15 @@
 
     <div id="catalog">
         {% set categories_name = categories %}
-        <div id="products_matrix_n">
+        <div id="categories_matrix_n">
         {% for product in categories_name %}
-            <a href="/catalog/{{ product[1] }}" id="product"> <div id="categories_col"> {{ product[0] }}
-            <img id="two_col" src=" {{ product[1] }} "> </div> </a>
-
+            <a href="/catalog/{{ product[0] }} {{ product[1] }}" id="categ">
+                <div id="categories_col">
+                    <img id="categ_img" src="/static/image/test_item.png">
+                    <br>
+                    {{ product[0] }}
+                </div>
+            </a>
         {% endfor %}
 
         </div>
@@ -21,5 +25,5 @@
 
     <div id="right_space"></div>
 </div>
-
+<br>
 {% endblock %}

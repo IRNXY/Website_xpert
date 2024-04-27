@@ -6,16 +6,33 @@
 <div id="object">
     <div id="left_space"></div>
 
-    <div id="catalog">
+    <div id="goods">
         {% set product_name = product %}
         <div id="products_matrix_n">
             {% for product in product_name %}
-                <a href="/item/{{ product[0] }} {{ product[1] }}" id="product"> <div id="categories_col"> {{ product[0] }}
-                <img id="two_col" src=" {{ product[1] }} "> </div> </a>
-
+                <a href="/item/{{ product[0] }} {{ product[1] }}" id="item">
+                    <div id="item_space">
+                        <img id="item_img" src=" /static/image/test_item.png ">
+                        <p id="avalible"> В наличии </p>
+                        {{ product[0] }}
+                        {% if product[4] == 0 %}
+                            <div id="bold">
+                             {{ product[2] }} p.
+                            </div>
+                        {% else %}
+                            <div id="sale_label">
+                                Скидка!
+                            </div>
+                            <div id="bold">
+                                <s>{{ product[2] }} p.</s> {{ product[3] }} p.
+                            </div>
+                        {% endif %}
+                    </div>
+                </a>
             {% endfor %}
         </div>
     </div>
     <div id="right_space"></div>
 </div>
+<br>
 {% endblock %}

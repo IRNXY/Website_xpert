@@ -71,21 +71,21 @@ def search_by_input(line):
 def search_sale_prod(num_of_prod):
     data = sqlite3.connect("DataBase/tution.db")
     cur = data.cursor()
-    need = cur.execute("""SELECT name, id FROM xpertools WHERE on_sale = 1""").fetchall()
+    need = cur.execute("""SELECT name, id, price, sale_price FROM xpertools WHERE on_sale = 1""").fetchall()
     return need[:num_of_prod]
 
 
 def search_by_id(id):
     data = sqlite3.connect("DataBase/tution.db")
     cur = data.cursor()
-    need = cur.execute("""SELECT name, id, price FROM xpertools WHERE id = ?""", (id,)).fetchall()
+    need = cur.execute("""SELECT name, id, price, sale_price, on_sale FROM xpertools WHERE id = ?""", (id,)).fetchall()
     return need
 
 
 def search_by_type(type):
     data = sqlite3.connect("DataBase/tution.db")
     cur = data.cursor()
-    need = cur.execute("""SELECT name, id FROM xpertools WHERE product_type = ?""", (type,)).fetchall()
+    need = cur.execute("""SELECT name, id, price, sale_price, on_sale FROM xpertools WHERE product_type = ?""", (type,)).fetchall()
     return need
 
 
@@ -102,14 +102,24 @@ def form_bin_layout():
     total = 0
     for i in list_product_bin:
         need = []
-        goods = search_by_id(i)
-        current_price = goods[0][-1]
-        for e in goods[0]:
+        goods = list(search_by_id(i)[0])
+
+        if goods[-1] == 0:
+            del goods[-1]
+            del goods[-1]
+        else:
+            del goods[-1]
+            del goods[-2]
+        current_price = goods[-1]
+
+        for e in goods:
             need.append(e)
+
         need.append(list_product_bin[i])
         total += current_price * list_product_bin[i]
         answ.append(need)
     return [answ, total]
+
 
 def order_to_manager(goods_list):
     data = sqlite3.connect("DataBase/tution.db")
@@ -184,6 +194,56 @@ def catalog():
         return render_template('catalog.html', categories=answ)
 
 
+@app.route("/promo", methods=['GET', 'POST'])
+def promo():
+    if request.method == 'POST':
+        product_input = request.form['products'].split()
+        goods = search_by_input(product_input)
+        return render_template('catalog_page.html', product=goods)
+    elif request.method == 'GET':
+        return render_template('promo.html')
+
+
+@app.route("/delivery", methods=['GET', 'POST'])
+def delivery():
+    if request.method == 'POST':
+        product_input = request.form['products'].split()
+        goods = search_by_input(product_input)
+        return render_template('catalog_page.html', product=goods)
+    elif request.method == 'GET':
+        return render_template('delivery.html')
+
+
+@app.route("/ur_pers", methods=['GET', 'POST'])
+def ur_pers():
+    if request.method == 'POST':
+        product_input = request.form['products'].split()
+        goods = search_by_input(product_input)
+        return render_template('catalog_page.html', product=goods)
+    elif request.method == 'GET':
+        return render_template('ur_pers.html')
+
+
+@app.route("/certificate", methods=['GET', 'POST'])
+def certificate():
+    if request.method == 'POST':
+        product_input = request.form['products'].split()
+        goods = search_by_input(product_input)
+        return render_template('catalog_page.html', product=goods)
+    elif request.method == 'GET':
+        return render_template('certificate.html')
+
+
+@app.route("/contacts", methods=['GET', 'POST'])
+def contacts():
+    if request.method == 'POST':
+        product_input = request.form['products'].split()
+        goods = search_by_input(product_input)
+        return render_template('catalog_page.html', product=goods)
+    elif request.method == 'GET':
+        return render_template('contacts.html')
+
+
 @app.route('/catalog/<id>', methods=['GET', 'POST'])
 def catalog_named(id):
     if request.method == 'POST':
@@ -207,13 +267,24 @@ def item(name):
         list_product_bin[int(id_in_bin)] = int(amount_in_bin)
 
     if request.method == 'POST':
-        product_input = request.form['products'].split()
-        goods = search_by_input(product_input)
-        return render_template('catalog_page.html', product=goods)
+
+        data = request.get_json()
+        if data:
+            text = order_to_manager(data)
+            send_client_inf(data["name"] + " " + data["phone"] + "\n" + text)
+            cat = get_categories()
+            sal = search_sale_prod(4)
+            return render_template("index.html", categories=cat, prod_with_sale=sal)
+        else:
+            product_input = request.form['products'].split()
+            print(product_input)
+            goods = search_by_input(product_input)
+            return render_template('catalog_page.html', product=goods)
     else:
         need = name.split()
-        name, id = " ".join(need[:-1]), need[-1]
-        return render_template("item.html", title=name, id=id,
+        id = need[-1]
+        answ = search_by_id(id)[0]
+        return render_template("item.html", name=name, product=answ,
                                image_item_path="/static/image/test_item.png",
                                image_sale_path="/static/image/sale_item.png")
 

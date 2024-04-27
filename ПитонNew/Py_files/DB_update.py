@@ -10,7 +10,6 @@ con = sqlite3.connect("DataBase/tution.db")
 cur = con.cursor()
 
 
-
 # con.commit()
 con.close()
 

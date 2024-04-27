@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+
+{% block content %}
+
+<div id="object">
+    <div id="left_space"></div>
+    <div id="left_space"></div>
+    <div style="text-align: start; width: 100%">
+        <div id="object">
+            <div style="width: 33%; font-size: 20px;">
+                <p style="font-weight: bold;">Связь с нами</p>
+                <p style="margin: 0px;"> <a href="tel:83832092424">8 (383)209-24-24</a></p>
+                <p><a href="mailto:sferarub@mail.ru">sferarub@mail.ru</a></p>
+            </div>
+            <div style="width: 33%;  font-size: 20px;">
+                <p style="font-weight: bold;"> Наши адрес</p>
+                <div id="streets_rows">
+                    <img id="loc_tag" src="/static/image/location_tag.png">
+                    <p id="margin0">П.берег: ул. Ипподромская 54</p>
+                </div>
+                <div id="streets_rows">
+                    <img id="loc_tag" src="/static/image/location_tag.png">
+                    <p id="margin0">Л.берег: ул. Новогодняя 24 (ПН-ПТ, 9:00-19:00)</p>
+                </div>
+                <div id="streets_rows">
+                    <img id="loc_tag" src="/static/image/location_tag.png">
+                    <p id="margin0">Первомайский район: ул. Ольги Берггольц 24</p>
+                </div>
+             </div>
+            <div style="width: 33%;  font-size: 20px;">
+                <p style="font-weight: bold;">Режим работы</p>
+                <p>Пн - Вс: 09-00 до 20-00</p>
+            </div>
+        </div>
+
+    </div>
+    <div id="right_space"></div>
+    <div id="right_space"></div>
+</div>
+<br>
+{% endblock %}
