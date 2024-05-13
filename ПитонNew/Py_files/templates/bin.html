@@ -19,21 +19,20 @@
             <div id="amount_title">Кол-во</div>
             <div id="final_sum_title">Итого</div>
         </div>
-        {% set bin_products = bin %}
         <div id="bin_row">
-            {% for product in bin_products %}
+            {% for i in range(count) %}
                     <div id="object">
-                        <button id="del_item" onclick="del_items( {{ product[1] }} )"><img src="/static/image/krest.jpg" height="100%"> </button>
-                        <img src="{{ product[1] }}" id="bin_pic">
-                        <a href="/item/{{ product[0] }} {{ product[1] }}" id="prod_name"> {{ product[0] }}</a>
+                        <button id="del_item" onclick="del_items( {{ bin.id[i] }} )"><img src="/static/image/krest.jpg" height="100%"> </button>
+                        <img src="{{ bin.image_path[i] }}" id="bin_pic">
+                        <a href="/item/{{ bin.name[i] }} {{ bin.id[i] }}" id="prod_name"> {{ bin.name[i] }}</a>
                     </div>
-                    <p id="prod_price{{product[1]}}" class="center_num"> {{product[2]}}p.</p>
+                    <p id="prod_price{{bin.id[i]}}" class="center_num"> {{bin.price[i]}}p.</p>
                     <div id="prod_amount">
-                        <button onclick="handleClick_bin(-1, {{ product[1] }})" id="click_btn">-</button>
-                        <h5 id="counter-display{{ product[1] }}" class="num_of_prod"> {{ product[3] }}</h5>
-                        <button onclick="handleClick_bin(1, {{ product[1] }})" id="click_btn">+</button>
+                        <button onclick="handleClick_bin(-1, {{ bin.id[i] }})" id="click_btn">-</button>
+                        <h5 id="counter-display{{ bin.id[i] }}" class="num_of_prod"> {{ bin.amount[i] }}</h5>
+                        <button onclick="handleClick_bin(1, {{ bin.id[i] }})" id="click_btn">+</button>
                     </div>
-                    <p id="prod_total{{ product[1] }}" class="center_num"> {{product[2] * product[3]}} p. </p>
+                    <p id="prod_total{{ bin.id[i] }}" class="center_num"> {{bin.price[i] * bin.amount[i]}} p. </p>
             {% endfor %}
         </div>
     </div>

@@ -1,6 +1,5 @@
 function show_form(){
     let need = document.getElementsByClassName('num_of_prod');
-    console.log(need)
     if (need.length == 0){
         document.getElementById("label_empty").style.display = 'block';
     }else{

@@ -8,14 +8,13 @@
     <div id="left_space"></div>
 
     <div id="catalog">
-        {% set categories_name = categories %}
         <div id="categories_matrix_n">
-        {% for product in categories_name %}
-            <a href="/catalog/{{ product[0] }} {{ product[1] }}" id="categ">
+        {% for i in range(count) %}
+            <a href="/catalog/{{ categories.type[i] }} {{ categories.id[i] }}" id="categ">
                 <div id="categories_col">
                     <img id="categ_img" src="/static/image/test_item.png">
                     <br>
-                    {{ product[0] }}
+                    {{ categories.type[i] }}
                 </div>
             </a>
         {% endfor %}

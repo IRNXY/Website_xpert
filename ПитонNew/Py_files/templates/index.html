@@ -20,11 +20,10 @@
     <div id="left_space"></div>
 
     <div id="catalog">
-        {% set categories_name = categories %}
         <div id="categories_matrix_n">
-            {% for product in categories_name %}
-                <a href="/catalog/{{ product[0] }} {{ product[1] }}" id="categ">
-                    <div id="categories_col"> <img id="categ_img" src="/static/image/test_item.png"> <br> {{ product[0] }}</div>
+            {% for i in range(count_cat) %}
+                <a href="/catalog/{{ categories.type[i] }} {{ categories.id[i] }}" id="categ">
+                    <div id="categories_col"> <img id="categ_img" src="/static/image/test_item.png"> <br> {{ categories.type[i] }}</div>
                 </a>
             {% endfor %}
         </div>
@@ -41,19 +40,18 @@
     <div id="left_space"></div>
 
     <div id="catalog">
-        {% set sale_products = prod_with_sale %}
         <div id="products_matrix_n">
-            {% for product in sale_products %}
-                <a href="/item/{{ product[0] }} {{ product[1] }}" id="item">
+            {% for i in range(count_sal) %}
+                <a href="/item/{{ prod_with_sale.name[i] }} {{ prod_with_sale.id[i] }}" id="item">
                     <div id="item_space">
-                        <img id="item_img" src=" /static/image/test_item.png ">
+                        <img id="item_img" src=" {{ prod_with_sale.image_path[i] }} ">
                         <p id="avalible"> В наличии </p>
-                        {{ product[0] }}
+                        {{ prod_with_sale.name[i] }}
                         <div id="sale_label">
                             Скидка!
                         </div>
                         <div id="bold">
-                            <s>{{ product[2] }} p.</s> {{ product[3] }} p.
+                            <s>{{ prod_with_sale.price[i] }} p.</s> {{ prod_with_sale.price[i] * (100 - prod_with_sale.sale_price[i]) / 100 }} p.
                         </div>
                     </div>
                 </a>

@@ -21,6 +21,8 @@
             width: 19px;
             border: none;
             background: white;}
+#bin_pic{height: 30px;
+        width: 40px;}
 .center_num {font-size: 17px;
             margin-top: 10px;}
 #prod_name {text-decoration: none;

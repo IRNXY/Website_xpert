@@ -4,29 +4,228 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5cc29f2-e6f7-4d3c-8c6f-58f4665fcd5d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Py_files/static/js/item_front.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Py_files/templates/certificate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Py_files/templates/contacts.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Py_files/templates/delivery.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Py_files/templates/promo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Py_files/templates/ur_pers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b5cc29f2-e6f7-4d3c-8c6f-58f4665fcd5d" name="Changes" comment="27ю04ю2024">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ПитонNew.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ПитонNew.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Py_files/DB_update.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/DB_update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Py_files/backend.py" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/backend.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Py_files/static/font/bin.css" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/static/font/bin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Py_files/static/font/categories.css" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/static/font/categories.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Py_files/static/font/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/static/font/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Py_files/static/font/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/static/font/item.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Py_files/static/font/product_items.css" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/static/font/product_items.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name100.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name101.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name102.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name103.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name104.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name105.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name106.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name107.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name108.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name109.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name110.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name111.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name112.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name113.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name114.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name115.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name116.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name117.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name118.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name119.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name120.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name122.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name123.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name124.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name125.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name126.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name127.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name128.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name129.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name130.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name131.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name132.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name133.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name134.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name135.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name136.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name137.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name138.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name139.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name140.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name141.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name142.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name143.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name144.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name145.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name146.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name147.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name148.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name149.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name150.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name151.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name152.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name153.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name154.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name155.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name156.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name157.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name158.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name159.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name160.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name161.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name162.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name163.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name164.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name165.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name166.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name167.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name168.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name169.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name17.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name170.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name171.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name172.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name173.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name174.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name175.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name176.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name177.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name178.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name179.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name180.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name181.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name182.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name183.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name184.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name185.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name186.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name187.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name188.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name189.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name19.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name190.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name191.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name192.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name193.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name194.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name195.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name196.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name197.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name198.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name199.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name200.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name201.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name202.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name203.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name204.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name205.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name206.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name207.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name208.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name209.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name21.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name210.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name211.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name212.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name213.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name214.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name215.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name216.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name217.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name22.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name23.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name24.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name25.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name26.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name28.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name29.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name30.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name31.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name33.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name34.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name35.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name36.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name37.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name38.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name39.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name40.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name41.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name42.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name43.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name44.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name45.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name46.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name47.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name48.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name49.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name50.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name51.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name52.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name53.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name54.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name55.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name56.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name57.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name58.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name59.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name60.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name61.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name62.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name63.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name64.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name65.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name66.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name67.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name68.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name69.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name70.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name71.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name72.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name73.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name74.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name75.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name76.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name77.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name78.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name79.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name80.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name81.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name82.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name83.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name84.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name85.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name86.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name87.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name88.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name89.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name90.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name91.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name92.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name93.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name94.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name95.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name96.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name97.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name98.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Py_files/static/image/image_name99.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Py_files/static/js/bin_front.js" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/static/js/bin_front.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Py_files/static/js/url.js" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/static/js/url.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Py_files/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Py_files/templates/bin.html" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/templates/bin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Py_files/templates/catalog.html" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/templates/catalog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Py_files/templates/catalog_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/Py_files/templates/catalog_page.html" afterDir="false" />
@@ -44,6 +243,17 @@
         <option value="CSS File" />
         <option value="HTML File" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
@@ -64,6 +274,7 @@
   &quot;keyToString&quot;: {
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;Python.backend.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -83,6 +294,12 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\veraw\PycharmProjects\ПитонNew\Py_files\static\image" />
+      <recent name="C:\Users\veraw\PycharmProjects\ПитонNew\Py_files\static\js" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.backend">
     <configuration name="backend" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ПитонNew" />
@@ -130,9 +347,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ПитонNew" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Py_files/static/js" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Py_files/static/js/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.backend" />
+        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -156,12 +397,39 @@
       <workItem from="1714128285088" duration="5894000" />
       <workItem from="1714203516035" duration="1011000" />
       <workItem from="1714204543231" duration="7792000" />
-      <workItem from="1714221617937" duration="3297000" />
+      <workItem from="1714221617937" duration="3986000" />
+      <workItem from="1714478745265" duration="2538000" />
+      <workItem from="1714544865330" duration="3675000" />
+      <workItem from="1714625577296" duration="4041000" />
+      <workItem from="1714725415235" duration="3696000" />
+      <workItem from="1714816190593" duration="8911000" />
+      <workItem from="1714888583202" duration="4992000" />
+      <workItem from="1714908964035" duration="3399000" />
+      <workItem from="1714982918254" duration="3720000" />
+      <workItem from="1715230188885" duration="7250000" />
+      <workItem from="1715242831093" duration="766000" />
+      <workItem from="1715331219852" duration="9555000" />
+      <workItem from="1715413488152" duration="1826000" />
+      <workItem from="1715501743331" duration="14855000" />
+      <workItem from="1715579019815" duration="6591000" />
     </task>
+    <task id="LOCAL-00001" summary="27ю04ю2024">
+      <option name="closed" value="true" />
+      <created>1714229039544</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714229039544</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="27ю04ю2024" />
+    <option name="LAST_COMMIT_MESSAGE" value="27ю04ю2024" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -175,6 +443,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/New$backend.coverage" NAME="backend Coverage Results" MODIFIED="1714225318976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Py_files" />
+    <SUITE FILE_PATH="coverage/New$test.coverage" NAME="test Coverage Results" MODIFIED="1715527154269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Py_files/static/js" />
+    <SUITE FILE_PATH="coverage/New$backend.coverage" NAME="backend Coverage Results" MODIFIED="1715593122928" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Py_files" />
   </component>
 </project>

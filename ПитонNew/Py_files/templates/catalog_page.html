@@ -7,24 +7,23 @@
     <div id="left_space"></div>
 
     <div id="goods">
-        {% set product_name = product %}
         <div id="products_matrix_n">
-            {% for product in product_name %}
-                <a href="/item/{{ product[0] }} {{ product[1] }}" id="item">
+            {% for i in range(count) %}
+                <a href="/item/{{ product.name[i] }} {{ product.id[i] }}" id="item">
                     <div id="item_space">
-                        <img id="item_img" src=" /static/image/test_item.png ">
+                        <img id="item_img" src=" {{ product.image_path[i] }} ">
                         <p id="avalible"> В наличии </p>
-                        {{ product[0] }}
-                        {% if product[4] == 0 %}
+                        {{ product.name[i] }}
+                        {% if product.on_sale[i] == 0 %}
                             <div id="bold">
-                             {{ product[2] }} p.
+                             {{ product.price[i] }} p.
                             </div>
                         {% else %}
                             <div id="sale_label">
                                 Скидка!
                             </div>
                             <div id="bold">
-                                <s>{{ product[2] }} p.</s> {{ product[3] }} p.
+                                <s>{{ product.price[i] }} p.</s> {{ product.price[i] * (100 - product.sale_price[i]) / 100 }} p.
                             </div>
                         {% endif %}
                     </div>
